@@ -1,0 +1,126 @@
+<div class="container">
+    <section class="outlined-box">
+    <p>Airbus</p>
+        <article>
+            <strong><?= $this->document['name'] ?></strong>
+            <span class="pull-right"><a href="" title="Download Excel"><i class="fa fa-download"></i></a></span>
+        </article>
+        <article>
+        <div class="row">
+            <div class="col-md-4">
+                <ul>
+                    <li>Revision Number: <?= $this->version['revision_num'] ?></li>
+                    <li>Revision Date: <?= $this->version['revision_dt'] ?></li>
+                    <li>Records: <?= $this->records['number'] ?></li>
+                </ul>
+                <?php if($this->version['comment']): ?>
+                <p><strong>Comment</strong></p>
+                <?= $this->version['comment'] ?>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-8">
+                <strong>Source</strong>
+                <?php if($this->sources): ?>
+
+                <ul>
+                    <?php foreach($this->sources as $source):?>
+                        <li>
+                            <a href="/document/download/id/<?=$source['id']?>"><?=$source['name']?></a> <?=$source['sheet_nm']?> <?=$source['updt_dtm']?> </li>
+                    <?php endforeach; ?>
+                </ul>
+                <?php else: ?>
+                    <p>No source documents found.</p>
+                <?php endif; ?>
+                    
+            </div>
+        </div>
+        </article>
+    </section>
+</div>
+<div class="record-table-container">
+    
+    <div id="toolbar">
+        <button class="btn btn-primary">Add Record</button>
+    </div>
+    <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%"
+        data-toolbar="#toolbar"
+        data-search="true"
+        data-show-refresh="true"
+        data-show-toggle="true"
+        data-show-columns="true"
+        data-show-export="true"
+        data-show-pagination-switch="true"
+        data-pagination="true"
+        data-id-field="id"
+        data-page-list="[10, 25, 50, 100, ALL]"
+        data-show-footer="false"
+        data-cookie="true"
+        data-cookie-id-table="versionViewTableAirbus"
+    >
+    </table>
+</div>
+
+<script src="/data-vault/common.js"></script>
+<script>
+$(document).ready(function() {
+    $('#table').bootstrapTable({
+        url:  '/api/mpd',
+        type: 'POST',
+        queryParams: function(p){
+            return {id: <?=$this->document_id?>, vid: <?=$this->document_version_id?>}
+        },
+        columns: <?=$this->table_columns?>,
+        // columns: [{
+        //     field: 'task_num',
+        //     title: 'Task Number',
+        //     sortable: 'true',
+        //     width: '100',
+        //     cellStyle: 'changeBarCellStyle'
+        // }, {
+        //     field: 'preparation',
+        //     sortable: 'true',
+        //     title: 'Preparation',
+        //     width: '100'
+        // }, {
+        //     field: 'task',
+        //     sortable: 'true',
+        //     title: 'Task',
+        //     width: '100'
+        // },{
+        //     field: 'task_desc',
+        //     title: 'Task Description',
+        //     sortable: 'true'
+        // } ,{
+        //     field: 'zone',
+        //     title: 'Zone',
+        //     sortable: 'true'
+        // } ,{
+        //     field: 'access',
+        //     title: 'Access',
+        //     sortable: 'true'
+        // } ,{
+        //     field: 'int_threshold',
+        //     title: 'Int Threshold',
+        //     sortable: 'true',
+        //     width: '120'
+        // } ,{
+        //     field: 'int_repeat',
+        //     title: 'Int Repeat',
+        //     sortable: 'true',
+        //     width: '120'
+        // } ,{
+        //     field: 'applicability',
+        //     title: 'Applicability',
+        //     sortable: 'true'
+        // } ,{
+        //     field: 'tools',
+        //     title: '',
+        //     align: 'center',
+        //     events: toolEvent,
+        //     formatter: toolFormatter
+        // } ],
+        exportDataType: 'all'
+    });
+
+});
+</script>

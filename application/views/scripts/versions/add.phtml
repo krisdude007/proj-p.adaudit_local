@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Add Version to Document</h2>
+            <section>
+                <p>
+                    <strong><?= $this->document['document']['name'] ?></strong>
+                </p>
+            <?php foreach($this->document['versions'] as $version):?>
+                <article>Version <?= $version['revision_num'] . ' Date ' . $version['revision_dt'] ?>
+                    <span class="pull-right">Updated: <?=$version['updt_dtm']?></span>
+                </article>
+            <?php endforeach; ?>
+            </section>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="/import/version">
+                <input type="hidden" name="document_id" value="<?=$this->document['document']['id']?>">
+
+            <div class="row mt20">
+                <div class="col-md-4">
+                    <label for="revision_num">Revision Number</label>
+                    <input class="form-control" type="text" name="revision_number" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="revision_dt">Revision Date</label>
+                    <input class="form-control datetimepicker" type="text" name="revision_date" required>
+                </div>
+            </div>
+            <div class="row mt20">
+                <div class="col-md-8">
+                    <label for="importfile">Source Document</label>
+                    <input type="file" name="importfile" required>
+                </div>
+            </div>
+            <div class="row mt20">
+                <div class="col-md-8">
+                    <label for="comment">Comment</label>
+                    <textarea name="comment" class="form-control" id="comment" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="row mt20">
+                <a href="/document/index" class="btn btn-default btn-sm" >Cancel</a>
+                <button class="btn btn-primary btn-sm" type="submit">Add New Version</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+$(function () {    
+    $('.datetimepicker').datetimepicker({
+        format: 'YYYY-MM-DD'
+    });
+});
+</script>

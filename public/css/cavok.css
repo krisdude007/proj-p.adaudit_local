@@ -1,0 +1,212 @@
+/*Site wide CSS*/
+
+@CHARSET "UTF-8";
+
+html{
+    height: 100%;
+}
+
+body {
+    font-family: arial;
+    overflow-x: hidden;
+}
+body.grid{
+    background: #e9e9e9 url('/images/grid.png') repeat 0 0;
+}
+
+header{
+    background: url('/images/layout/bg.jpg') fixed;
+    padding: 20px;
+    padding-left: 30px;
+    height: 83px;
+}
+header img{
+     width:200px;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+
+.mb20{
+    margin-bottom: 20px;
+}
+.mb40{
+    margin-bottom: 40px;
+}
+.mt20{
+    margin-top: 20px;
+}
+.mt40{
+    margin-top: 40px;
+}
+
+.nav-tabs{
+    margin-bottom: 15px;
+}
+/****** Interface elements ********/
+.container a i.fa, .record-table-container a i.fa{
+    color: #aaa;
+    font-size: 80%;
+}
+.container a i.fa:hover, .record-table-container a i.fa:hover{
+    color: #333;
+}
+
+
+section.outlined-box{
+    margin:5px 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px 15px 10px;
+}
+section.outlined-box article{
+    border-bottom: 1px dotted #aaa;
+    margin-bottom: 5px;
+    padding: 0 10px;
+}
+section.outlined-box article:last-of-type{
+    border-bottom: none
+}
+
+/****** Change bar indicators for record table ********/
+tr td.R{
+    border-left: 3px solid #000 !important;
+}
+tr td.D{
+    border-left: 3px solid #ff3530 !important;
+    text-decoration: line-through;
+}
+.record-table-container{
+    width:100%;
+    padding: 0 25px;
+    margin: auto 0;
+    position: relative;
+}
+/****** Environment indicators ********/
+.development, .testing, .stage{
+    background-color: #ff9363;
+}
+.testing{
+    background-color: #8bafff;
+}
+.stage{
+    background-color: #9affa1;
+}
+.production{
+}
+
+/****** span fixed width ********/
+span.fixed-width{
+    display: inline-block;
+    min-width: 20em;
+    margin-right: 1em;
+}
+/****** Success and File Indicators *********/
+#fail-indicator, #success-indicator{
+    display: none;
+}
+
+/* Colors for labels, badges and such */
+.bg-aqua{background-color:#7FDBFF}
+.bg-black{background-color:#111}
+.bg-blue{background-color:#0074D9}
+.bg-fuchsia{background-color:#F012BE}
+.bg-gray{background-color:#aaa}
+.bg-green{background-color:#2ECC40}
+.bg-lime{background-color:#01FF70}
+.bg-maroon{background-color:#85144B}
+.bg-navy{background-color:#001F3F}
+.bg-olive{background-color:#3D9970}
+.bg-orange{background-color:#FF851B}
+.bg-purple{background-color:#B10DC9}
+.bg-red{background-color:#FF4136}
+.bg-silver{background-color:#ddd}
+.bg-teal{background-color:#39CCCC}
+.bg-white{background-color:#fff}
+.bg-yellow{background-color:#FFDC00}
+
+.color-aqua{color:#7FDBFF}
+.color-black{color:#111}
+.color-blue{color:#0074D9}
+.color-fuchsia{color:#F012BE}
+.color-gray{color:#aaa}
+.color-green{color:#2ECC40}
+.color-lime{color:#01FF70}
+.color-maroon{color:#85144B}
+.color-navy{color:#001F3F}
+.color-olive{color:#3D9970}
+.color-orange{color:#FF851B}
+.color-purple{color:#B10DC9}
+.color-red{color:#FF4136}
+.color-silver{color:#ddd}
+.color-teal{color:#39CCCC}
+.color-white{color:#fff}
+.color-yellow{color:#FFDC00}
+
+/****** MMC Color Pallette *********/
+.white{color: #ffffff;}
+.gray-text{color: #7c848A;}
+.dark-sapphire{color: #002C77;}
+.medium-sapphire{color: #006D9E;}
+.bright-sapphire{color: #00A8C8;}
+.light-sapphire{color: #A6E2EF;}
+.dark-ruby{color: #690031;}
+.medium-ruby{color: #a9194f;}
+.bright-ruby{color:#ed2c67;}
+.light-ruby{color:#f7b6bb;}
+
+
+
+
+
+
+
+ 
+
+
+

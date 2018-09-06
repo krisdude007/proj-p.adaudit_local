@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js"></script>
+
+<style type="text/css">
+    .chosen-choices {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        min-height: 34px;
+        padding: 6px 12px;
+    }
+    .chosenContainer .form-control-feedback {
+        /* Adjust feedback icon position */
+        right: -15px;
+    }
+    .chosenContainer .form-control {
+        height: inherit; 
+        padding: 0px;
+    }
+    .chosen-container-multi .chosen-choices li.search-field input.default {
+        padding: 0px;
+        margin: 8px;
+    }
+</style>
+<div class="container">
+    <p class="lead"><i class="fa fa-plane"></i> AD Audit</p>
+    <p>This application can be used to manage Airworthiness Directives.</p>
+    <p>Please select the list of fleets below to proceed.</p>
+    <p>
+    <form id="fleetForm" method="POST" action="/ad/index" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Select your fleet type(s)</label>
+            <div class="col-xs-8 chosenContainer">
+                <select class="form-control chosen-select" name="fleets[]" multiple data-placeholder="Select the fleet type" style="width: 100%;" required>
+                    <?php foreach ($this->fleets as $fleet): ?>
+                        <?php if (!empty($this->curFleets) && in_array($fleet['value'], $this->curFleets)): ?>
+                        <option name="fleetValue" id="fleetValue" selected value="<?= $fleet['value']; ?>"><?= $fleet['valueText']; ?></option>
+                        <?php else: ?>
+                        <option name="fleetValue" id="fleetValue" value="<?= $fleet['value']; ?>"><?= $fleet['valueText']; ?></option>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-5 col-xs-offset-3">
+                <button type="submit" class="btn btn-default btn-info" >Show ADs</button>
+            </div>
+        </div>
+    </form>
+</p>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#fleetForm')
+                .find('[name="fleets[]"]')
+                .chosen({
+                    width: '100%',
+                    inherit_select_classes: true
+                })
+             
+});
+</script>

@@ -1,0 +1,86 @@
+<div class="container">
+<p class="lead"><?= $this->mpdList[0]['aircraft'] ?> MPD Revision Date <?= $this->mpdList[0]['revision'] ?></p>
+
+    <table class="mrb" border="1">
+        <thead>
+            <tr>
+                <td rowspan="2">MPD ITEM NUMBER</td>
+                <td rowspan="2">AMM REFERENCE</td>
+                <td rowspan="2">PGM</td>
+                <td rowspan="2">ZONE</td>
+                <td rowspan="2">ACCESS</td>
+                <td colspan="2">INTERVAL</td>
+                <td colspan="2">APPLICABILITY</td>
+                <td rowspan="2">MAN HOURS</td>
+                <td rowspan="2">TASK DESCRIPTION</td>
+            </tr>
+            <tr>
+                <td>THRESHOLD</td>
+                <td>REPEAT</td>
+                <td>APL</td>
+                 <td>ENG</td>
+            </tr>
+        </thead>
+        <tbody>
+    <?php foreach ($this->mpdList as $item) : ?>
+        <?php if($item['change_bar'] == 'D' ) : ?>
+            <tr class="strikethrough">
+        <?php elseif($item['change_bar'] == 'R' ) : ?>
+            <tr class="revised">
+        <?php else: ?>
+            <tr>
+        <?php endif;?>
+            <td width="100"><?php echo $item['mpd_item_number'] ?>
+                    <?php if($item['change_bar'] == 'R'): ?>
+                        <span class="label label-info changed" data-mpd="<?php echo $item['mpd_item_number'] ?>">Revised</span>
+                    <?php endif; ?>
+                    <div class="btn-group mt10">
+                        <button type="button" class="btn btn-default btn-xs dropdown-toggle pull-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="edit" data-eid="<?= $item['id']?>"><i class="fa fa-pencil-square-o"></i> Edit</a></li>
+                            <li><a href="#" class="delete" data-eid="<?= $item['id']?>"><i class="fa fa-trash-o"></i> Delete</a></li>
+                        </ul>
+                    </div>
+            </td>
+            <td width="50"><?php echo nl2br($item['amm_reference']) ?></td>
+            <td width="50"><?php echo nl2br($item['cat']) ?></td>
+            <td width="100"><?php echo nl2br($item['zone']) ?></td>
+            <td width="100"><?php echo nl2br($item['access']) ?></td>
+            <td width="100"><?php echo nl2br($item['int_threshold']) ?></td>
+            <td width="100"><?php echo nl2br($item['int_repeat']) ?></td>
+            <td width="50"><?php echo nl2br($item['appl_airplane']) ?></td>
+            <td width="50"><?php echo nl2br($item['appl_engine']) ?></td>
+            <td width="50"><?php echo number_format($item['man_hours'],1) ?></td>
+            <td class="text-left" width="400"><?php echo nl2br($item['task_description']) ?></td>  
+        </tr>
+    <?php endforeach; ?>
+        <tr><td colspan="11">End of data</td></tr>
+        </tbody>
+    </table>
+</div><!-- .container -->
+
+<div class="modal fade" id="highLightsModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script>
+var aircraft = "<?= $this->mpdList[0]['aircraft'] ?>";
+var revision = "<?= $this->mpdList[0]['revision'] ?>";
+</script>
+<?php $this->inlineScript()->appendFile($this->baseUrl('js/mpd/index.js')) ?>
+<?php $this->inlineScript()->appendFile($this->baseUrl('js/doAjax.js')) ?>
+<?php $this->inlineScript()->appendFile($this->baseUrl('js/nl2br.js')) ?>
+<?php $this->inlineScript()->appendFile($this->baseUrl('js/mpd/index.js')) ?>

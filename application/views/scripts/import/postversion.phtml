@@ -1,0 +1,63 @@
+<style>
+    .label-mapping, .select-mapping{
+        width:100%;
+        display: inline-block;
+        background-color: white;
+        color: black;
+        border: 1px solid silver;
+        height: 21px;
+    }
+    #loader{
+        padding: 10px;
+        margin: 10px;
+        display: none;
+        font-weight: 400;
+        color: #ccc;
+    }
+</style>
+<div class="col-md-8 col-md-offset-3">
+    <form class="form-horizontal" enctype="multipart/form-data" method="post" action="/import/postimportworksheet">
+    <input type="hidden" name="document_id" value="<?=$this->document_id?>">
+    <input type="hidden" name="source_document_id" value="<?=$this->source_document_id?>">
+    <input type="hidden" name="document_version_id" value="<?=$this->document_version_id?>">
+        <div class="row mt20">
+            <h2>Select Worksheet</h2>
+        </div>
+
+        <?= $this->error ?>
+
+        <select class="form-control" name="worksheet_index" id="worksheet_index_select">
+            <option value="">Select Worksheet...</option>'
+            <?php foreach($this->worksheetNames as $key => $value):?>
+                <option value="<?=$key;?>"><?=$value;?></option>
+            <?php endforeach; ?>
+        </select>
+        <div class="row">
+            <div id="loader">Loading...</div>
+        </div>
+        <div class="row">
+            <div id="display-column-map"></div>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    $(function () {
+        // when a worksheet is selected, update the model dropdown
+        $('#worksheet_index_select').on('change', function () {
+            $('#loader').show();
+             $('#display-column-map').load('/import/mapcolumns/?id='+ $('#worksheet_index_select').val() + '&sid=<?=$this->source_document_id ?>', function()
+                {
+                    $('#loader').hide();
+                });
+        });
+
+        // need to do some validation and enable the submit button
+        $('select','input').on('change', function () {
+          // console.log('input change');
+           // $('#submitButton').prop("disabled", false);
+        });
+
+    });
+</script>

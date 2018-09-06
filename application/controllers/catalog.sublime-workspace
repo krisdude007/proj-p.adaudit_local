@@ -1,0 +1,1237 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ver",
+				"vertical-align"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"mrb",
+				"mrb_item_number"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"air",
+				"aircraftModels"
+			],
+			[
+				"unit",
+				"unit_count"
+			],
+			[
+				"for",
+				"for	for …"
+			],
+			[
+				"upd",
+				"updateUnitCount"
+			],
+			[
+				"prop",
+				"propertiesTab"
+			],
+			[
+				"pro",
+				"propertyDetail"
+			],
+			[
+				"error",
+				"errorText"
+			],
+			[
+				"pr",
+				"propertiesTab"
+			],
+			[
+				"emer",
+				"emergency_phone"
+			],
+			[
+				"p",
+				"properties"
+			],
+			[
+				"leaes",
+				"leases"
+			],
+			[
+				"end",
+				"endDateStr"
+			],
+			[
+				"num",
+				"number-units"
+			],
+			[
+				"ep",
+				"expenseCategory"
+			],
+			[
+				"auth",
+				"authorizeUrl"
+			],
+			[
+				"clic",
+				"clickedButton"
+			],
+			[
+				"e",
+				"editExpenseElement"
+			],
+			[
+				"ed",
+				"editingExpenseElement"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"fn",
+				"function"
+			],
+			[
+				"edit",
+				"editExpenseCategory"
+			],
+			[
+				"expen",
+				"expenseCategories"
+			],
+			[
+				"js",
+				"json_encode"
+			],
+			[
+				"exp",
+				"expenseCategory"
+			],
+			[
+				"Exp",
+				"ExpenseCategory"
+			],
+			[
+				"ex-",
+				"exp-error"
+			],
+			[
+				"re",
+				"removeExpense"
+			],
+			[
+				"list-s",
+				"list-style-type"
+			],
+			[
+				"fl",
+				"folderId"
+			],
+			[
+				"dele",
+				"deleteContents"
+			],
+			[
+				"bor",
+				"border-top"
+			],
+			[
+				"footer",
+				"footer-v1"
+			],
+			[
+				"no",
+				"normalIcon"
+			],
+			[
+				"map",
+				"mapBoundary"
+			],
+			[
+				"add",
+				"addressList"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"ima",
+				"imageData"
+			],
+			[
+				"aja",
+				"ajaxUpload"
+			],
+			[
+				"final",
+				"finalPath"
+			],
+			[
+				"tem",
+				"tempName"
+			],
+			[
+				"te",
+				"tempName"
+			],
+			[
+				"heig",
+				"heightRatio"
+			],
+			[
+				"wid",
+				"widthRatio"
+			],
+			[
+				"tm",
+				"tmp_img_h"
+			],
+			[
+				"hie",
+				"heightRatio"
+			],
+			[
+				"fina",
+				"finalPath"
+			],
+			[
+				"sour",
+				"sourceImage"
+			],
+			[
+				"vali",
+				"validateFile"
+			],
+			[
+				"temp",
+				"temp_path"
+			],
+			[
+				"IM",
+				"IMAGETYPE_PNG"
+			],
+			[
+				"fli",
+				"file_info"
+			],
+			[
+				"cro",
+				"cropBoxData"
+			],
+			[
+				"trac",
+				"transaction_id"
+			],
+			[
+				"bac",
+				"background-size"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"delete",
+				"deleteEntryRow"
+			],
+			[
+				"newEn",
+				"newEntryData"
+			],
+			[
+				"rank",
+				"rank_id"
+			],
+			[
+				"servic",
+				"serviceTime"
+			],
+			[
+				"ser",
+				"serviceTime"
+			],
+			[
+				"proje",
+				"project_id"
+			],
+			[
+				"proj",
+				"project_id"
+			],
+			[
+				"new",
+				"newEntry"
+			],
+			[
+				"select",
+				"selectedValue"
+			],
+			[
+				"_",
+				"_liA"
+			],
+			[
+				"lock",
+				"lock_pay_period"
+			],
+			[
+				"sele",
+				"selectedValue"
+			],
+			[
+				"airfr",
+				"airframeEngineTable"
+			],
+			[
+				"sp",
+				"specialDayCount"
+			],
+			[
+				"spci",
+				"specialDayCount"
+			],
+			[
+				"dateTo",
+				"dateTotalHours"
+			],
+			[
+				"input-",
+				"input-success"
+			],
+			[
+				"res",
+				"responseArray"
+			],
+			[
+				"ent",
+				"entry_project_id"
+			],
+			[
+				"spe",
+				"specialDays"
+			],
+			[
+				"entry",
+				"entry_project_id"
+			],
+			[
+				"entr",
+				"entry_project_id"
+			],
+			[
+				"entryData",
+				"entry_data"
+			],
+			[
+				"selec",
+				"selected_user"
+			],
+			[
+				"uer",
+				"user_id"
+			],
+			[
+				"geten",
+				"getentriesAction"
+			],
+			[
+				"wee",
+				"weekly_entries"
+			],
+			[
+				"we",
+				"weekly_entries"
+			],
+			[
+				"week",
+				"weekly_entries"
+			],
+			[
+				"sublime",
+				"sublime_plugin"
+			],
+			[
+				"engi",
+				"engineTable"
+			],
+			[
+				"fav",
+				"favoritesTable"
+			],
+			[
+				"column",
+				"columnNames"
+			],
+			[
+				"so",
+				"sourceColumns"
+			],
+			[
+				"colu",
+				"columnAliasName"
+			],
+			[
+				"imag",
+				"imageHTML"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"task_coordi",
+				"task_coordinator_email"
+			],
+			[
+				"task",
+				"task_coordinator_txt"
+			],
+			[
+				"rev",
+				"revisionRecords"
+			],
+			[
+				"prelo",
+				"preloadData"
+			],
+			[
+				"inter",
+				"intervalsTable"
+			],
+			[
+				"repe",
+				"repeat_unit"
+			],
+			[
+				"thr",
+				"threshold_unit"
+			],
+			[
+				"thresho",
+				"threshold_value"
+			],
+			[
+				"instr",
+				"instruction_id"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"chain",
+				"chain_class"
+			],
+			[
+				"first",
+				"firstRowNames"
+			],
+			[
+				"man",
+				"manufacturers"
+			],
+			[
+				"custo",
+				"customer_id"
+			],
+			[
+				"userFa",
+				"userFavorites"
+			],
+			[
+				"userFav",
+				"userFavorite"
+			],
+			[
+				"default",
+				"defaultLocation"
+			],
+			[
+				"chronic",
+				"chronicle_user_id"
+			],
+			[
+				"billin",
+				"billing_type_id"
+			],
+			[
+				"search",
+				"searchText"
+			],
+			[
+				"User",
+				"UserAccrualHelper"
+			],
+			[
+				"sav",
+				"saveData"
+			],
+			[
+				"to",
+				"toArray"
+			],
+			[
+				"ti",
+				"directive-timeentry.js"
+			],
+			[
+				"pay",
+				"pay_period_id"
+			],
+			[
+				"thisWe",
+				"thisWeek_end"
+			],
+			[
+				"mpd",
+				"mpdConvert"
+			],
+			[
+				"record",
+				"recordIdentifier"
+			],
+			[
+				"data",
+				"dataColumn"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"input-text",
+				"Snippet: bs3-input-text"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"onread",
+				"Snippet: jQuery(document).ready"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"html scri",
+				"Snippet: HTML - Script"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"read",
+				"Snippet: jQuery ready function"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ready",
+				"Snippet: jQuery ready function"
+			],
+			[
+				"switch",
+				"Snippet: switch …"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"list p",
+				"Package Control: List Packages"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"PHP Code Sniffer: ",
+				"PHP Code Sniffer: Sniff this file"
+			],
+			[
+				"zend",
+				"Snippet: Zend_Debug::dump"
+			],
+			[
+				"mark",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"Package Control: remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"markd",
+				"Set Syntax: Markdown"
+			],
+			[
+				"mar",
+				"Set Syntax: Markdown"
+			],
+			[
+				"jq",
+				"Snippet: jQuery on handler"
+			],
+			[
+				"jque",
+				"Snippet: jQuery AJAX call"
+			],
+			[
+				"marke",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"ze",
+				"Snippet: zend_norender"
+			],
+			[
+				"insp",
+				"Package Control: Install Package"
+			],
+			[
+				"script",
+				"Snippet: HTML - Script"
+			],
+			[
+				"s",
+				"Snippet: html"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Discover Packages"
+			],
+			[
+				"pack",
+				"Package Control: Add Repository"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"founda",
+				"Snippet: HTML - HTML foundation"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Zend_Debug::dump"
+			],
+			[
+				"insta	",
+				"Package Control: Install Package"
+			],
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"ad",
+				"Project: Add Folder"
+			],
+			[
+				"add",
+				"Project: Add Folder"
+			]
+		],
+		"width": 728.0
+	},
+	"console":
+	{
+		"height": 159.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/private/var/www/sites/p.cat"
+	],
+	"file_history":
+	[
+		"/private/var/www/sites/p.harmony/application/configs/application.ini",
+		"/private/var/www/sites/p.harmony/application/views/scripts/mrb/index.phtml",
+		"/private/var/www/sites/p.harmony/application/views/scripts/specification/index.phtml",
+		"/private/var/www/sites/p.harmony/application/controllers/MpdController.php",
+		"/private/var/www/sites/p.harmony/application/models/Shared/Mrb.php",
+		"/private/var/www/sites/p.harmony/application/models/Shared/Application.php",
+		"/private/var/www/sites/p.harmony/application/layouts/scripts/layout.phtml",
+		"/private/var/www/sites/p.harmony/application/layouts/scripts/notifications.phtml",
+		"/private/var/www/sites/p.harmony/application/controllers/HarvestController.php",
+		"/Users/dgd/Desktop/MRB Import.csv",
+		"/private/var/www/sites/p.accd/application/controllers/AircraftController.php",
+		"/private/var/www/sites/p.ica/application/controllers/AdminController.php",
+		"/private/var/www/sites/p.harmony/application/controllers/ErrorController.php",
+		"/private/var/www/sites/p.harmony/application/views/scripts/error/error.phtml",
+		"/private/var/www/sites/p.harmony/application/views/scripts/test/index.phtml",
+		"/private/var/www/sites/p.harmony/application/controllers/HelloController.php",
+		"/private/var/www/sites/p.harmony/application/controllers/IndexController.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/HomeController.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/PropertiesController.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/errors/404.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Library/Former/Former.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/property/form.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/partials/navbar.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/partials/home/properties.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/property/create.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/Auth/PasswordController.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/Auth/AuthController.php",
+		"/private/var/www/projects/rentrabbitsl5/vendor/laravel/framework/src/Illuminate/Auth/Passwords/PasswordBroker.php",
+		"/private/var/www/projects/rentrabbitsl5/app/User.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/Integrations/DropboxController.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/Integrations/EvernoteController.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/Integrations/IntegrationController.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/routes.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/partials/home/overview.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/index.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/partials/home/income.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/partials/home/tenants.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/partials/home/expenses.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/SessionsController.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/Api/PropertyController.php",
+		"/private/var/www/projects/rentrabbitsl5/readme.md",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Middleware/RedirectIfAuthenticated.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Middleware/Authenticate.php",
+		"/private/var/www/projects/rentrabbitsl5/tests/factories/factories.php",
+		"/Users/dgd/Desktop/MPD-MRB 767/MPD 22Dec2014 D622T001/MPD_767__D622T001XMLSUP__20141222/mpdsup.xml",
+		"/private/etc/hosts",
+		"/private/var/www/projects/rentrabbitsl5/public/js/doajax.js",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/UnitsController.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/account/index.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/property/partials/properties.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/property/partials/multi_unit.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/TenantsController.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/ExpensesCategoriesController.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/tenants/create.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/public/js/exp_cats.js",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/tenants/index.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/assets/less/app.less",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/AccountController.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/app.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/property/partials/property_detail.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/assets/js/vendor/jquery.cookie.js",
+		"/private/var/www/projects/rentrabbitsl5/public/js/jquery.cookies.js",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/partials/files/upload_modal.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/public/js/property.js",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/partials/account/payment.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/partials/account/notifications.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/partials/account/integrations.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/partials/account/password.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/partials/account/profile.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/partials/notifications.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/partials/integrations.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/integrations/index.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/home/partials/settings.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Tenant.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/IntegrationsController.php",
+		"/Users/dgd/.profile",
+		"/private/var/www/projects/rentrabbitsl5/app/Providers/EventServiceProvider.php",
+		"/private/var/www/projects/rentrabbitsl5/app/ExpenseCategory.php",
+		"/private/var/www/projects/rentrabbitsl5/storage/logs/laravel-2015-06-30.log",
+		"/private/var/www/projects/rentrabbitsl5/public/theme/assets/css/custom.css",
+		"/private/var/www/projects/rentrabbitsl5/resources/assets/less/expense-category.less",
+		"/private/var/www/projects/rentrabbitsl5/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php",
+		"/private/var/www/projects/rentrabbitsl5/vendor/laravel/framework/src/Illuminate/Contracts/Auth/Guard.php",
+		"/private/var/www/projects/rentrabbitsl5/vendor/laravel/framework/src/Illuminate/Auth/Guard.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/property/partials/single_unit.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/property/partials/tenant.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/property/partials/expenses.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Expense.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/ExpensesController.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/assets/js/vendor/vue-resource.min.js",
+		"/private/var/www/projects/rentrabbitsl5/gulpfile.js",
+		"/private/var/www/projects/rentrabbitsl5/resources/vendor/vue-resource.min.js",
+		"/private/var/www/projects/rentrabbitsl5/resources/vendor/vue.min.js",
+		"/Users/dgd/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/dgd/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/private/var/www/projects/rentrabbitsl5/config/site.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Unit.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Property.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Lease.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/property/edit.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/property/show.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/partials/google_map_multiple.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/partials/google_map.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/database/migrations/2015_06_26_155540_CreateUsersTable.php",
+		"/private/var/www/projects/rentrabbitsl5/database/migrations/2015_06_26_154126_CreateExpensesTable.php",
+		"/private/var/www/projects/rentrabbitsl5/database/migrations/2015_06_26_154136_CreateLeasesTable.php",
+		"/private/var/www/projects/rentrabbitsl5/database/migrations/2015_06_26_154151_CreateTenantsTable.php",
+		"/private/var/www/projects/rentrabbitsl5/database/migrations/2015_06_26_154021_CreatePropertiesTable.php",
+		"/private/var/www/projects/rentrabbitsl5/database/migrations/2015_06_26_154126_create_expenses_table.php",
+		"/private/var/www/projects/rentrabbitsl5/database/seeds/DatabaseSeeder.php",
+		"/private/var/www/projects/rentrabbitsl5/database/seeds/ExpenseCategoriesTableSeeder.php",
+		"/private/var/www/projects/rentrabbitsl5/database/migrations/2015_06_26_154114_CreateUnitsTable.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/property/index.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/resources/assets/less/theme/theme.less",
+		"/private/var/www/projects/rentrabbitsl5/public/theme/assets/plugins/line-icons/line-icons.css",
+		"/private/var/www/projects/rentrabbitsl5/resources/views/property/partials/unit.blade.php",
+		"/private/var/www/projects/rentrabbitsl5/public/css/test.css",
+		"/private/var/www/projects/rentrabbitsl5/public/theme/assets/css/footers/footer-v1.css",
+		"/private/var/www/projects/rentrabbitsl5/public/theme/assets/css/app.css",
+		"/private/var/www/projects/rentrabbitsl5/public/css/app.css",
+		"/private/var/www/projects/rentrabbitsl5/resources/assets/less/bootstrap/bootstrap.less",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Controllers/RegistrationController.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Mailers/AppMailer.php",
+		"/private/var/www/projects/rentrabbitsl5/.env",
+		"/private/var/www/projects/rentrabbitsl5/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/private/var/www/projects/rentrabbitsl5/database/migrations/2015_05_10_155036_create_properties_table.php",
+		"/private/var/www/projects/rentrabbitsl5/app/Http/Requests/Request.php",
+		"/private/var/www/projects/rentrabbitsl5/vendor/laravel/framework/src/Illuminate/Foundation/Http/FormRequest.php"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/private/var/www/sites/p.harmony/",
+			"/private/var/www/sites/p.harmony/,-*.css",
+			"/private/var/www/sites/p.harmony/",
+			"/private/var/www/sites/p.harmony/application",
+			"/private/var/www/projects/rentrabbitsl5",
+			"/private/var/www/projects/printshopl5",
+			"/private/var/www/projects/printshop",
+			"/private/var/www/sites/p.chronicle",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.chronicle",
+			"/private/var/www/sites/p.cat/library",
+			"/private/var/www/sites/p.gap-2014",
+			"/private/var/www/sites/p.chronicle",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.gap-2014",
+			"/private/var/www/sites/p.ica-2014",
+			"/private/var/www/sites/p.chronicle",
+			"/private/var/www/sites/p.ica-2014/",
+			"/private/var/www/sites/p.ica-2014/libarary/ExcelMgr",
+			"/private/var/www/sites/p.chronicle",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.ica-2014",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.chronicle",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.chronicle",
+			"/private/var/www/sites/p.tia",
+			"/private/var/www/sites/p.chronicle",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.chronicle",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.chronicle",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.chronicle/application/views/scripts",
+			"/private/var/www/sites/p.chronicle",
+			"/private/var/www/sites/p.atb",
+			"/private/var/www/sites/p.tia",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.tia",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.tia",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.framework",
+			"/private/var/www/sites/p.chronicle",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.c",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.chronicle/application/",
+			"/private/var/www/sites/p.cat/application/",
+			"/private/var/www/sites/p.chronicle/application/",
+			"/private/var/www/sites/p.cat/application/",
+			"/private/var/www/sites/p.tooling/application/",
+			"/private/var/www/sites/p.tooling/application/views",
+			"/private/var/www/sites/p.tooling/library/ZendSvgGraph",
+			"/private/var/www/sites/p.tooling",
+			"/private/var/www/sites/p.atb,/private/var/www/sites/p.atb",
+			"/private/var/www/sites/p.atb",
+			"/private/var/www/sites/p.145audit",
+			"/private/var/www/sites/p.accd",
+			"/private/var/www/sites/p.tooling",
+			"/private/var/www/sites/p.cat",
+			"<open files>",
+			"/private/var/www/sites/p.cat",
+			"<open files>",
+			"<open files>print_r",
+			"/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.ipa,/private/var/www/sites/p.cat",
+			"/private/var/www/sites/p.ipa,/private/var/www/sites/",
+			"/private/var/www/sites/p.ipa,/private/var/www/sites/p.ipc",
+			"/private/var/www/sites/p.cat/",
+			"/private/var/www/sites/p.tt/",
+			"/private/var/www/sites/p.ipa/",
+			"/private/var/www/sites/p.tt/",
+			"/private/var/www/sites/p.accd/",
+			"/private/var/www/sites/p.tt/",
+			"/private/var/www/sites/p.tt/library/Slickgrid"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"type",
+			"i.revision",
+			"17",
+			".top",
+			"class=\"text-center\" ",
+			"n id",
+			"\n            <td>4</td>",
+			"th",
+			"Th",
+			"th",
+			"cat",
+			"CAT",
+			"cat",
+			"CAT",
+			"md-3",
+			"task_description",
+			"appl_airplane",
+			"airplane",
+			"appl_airplane",
+			"int_repeat",
+			"threshold",
+			"mrb_item_number",
+			"revision",
+			"columnList",
+			"\"U\"",
+			"Birds",
+			"birds",
+			"Birds",
+			"birds",
+			"mpd",
+			".docs",
+			"docs",
+			"inlineScript",
+			"mpd",
+			"shared",
+			"project",
+			"Project",
+			"project",
+			"mpd",
+			"shared",
+			"shareddocs",
+			"mydocs",
+			".dropdown-menu:after",
+			"prefix",
+			"front",
+			"ErrorController",
+			"IndexController",
+			"forcasting",
+			"20",
+			"\"",
+			"'",
+			"tenantsTab",
+			"\">",
+			", '",
+			"df4f6a9fe6c03f0aab676d98daf468c2",
+			"SessionsController",
+			"postLogin(",
+			"password.reset",
+			"password.email",
+			"passwordbrokercontract",
+			"tenant",
+			"tenants",
+			"expenses",
+			"tenant",
+			"tenants",
+			"property",
+			"properties",
+			"col-md-4 ",
+			"faker",
+			".hidden",
+			"lists",
+			".",
+			"Edit",
+			");\n",
+			"doAjax",
+			"    });",
+			"href",
+			"home.partials.account",
+			"account",
+			"s.",
+			" {{-- Collect the nav links, forms, and other content for toggling --}}\n        <div class=\"collapse navbar-collapse mega-menu navbar-responsive-collapse\">\n            <div class=\"container\">\n                <ul class=\"nav navbar-nav\">\n                    {{-- Home --}}\n                    <li class=\"dropdown active\">\n                        <a href=\"#\">\n                            Home\n                        </a>\n                        <ul class=\"dropdown-menu\">\n                            <li class=\"active\"><a href=\"index.html\">Option 1: Default Page</a></li>\n\n                            {{-- One Page --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Option 2: One Page</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a target=\"_blank\" href=\"One-Page/index.html\">- One Page Template</a></li>\n                                    <li><a target=\"_blank\" href=\"One-Page/dark-page-example.html\">- One Page Dark Theme</a></li>\n                                </ul>\n                            </li>\n                            {{-- End One Page --}}\n\n                            {{-- Shop UI Page --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Option 3: Shop UI</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a target=\"_blank\" href=\"Shop-UI/index.html\">- Home Page</a></li>\n                                    <li><a target=\"_blank\" href=\"Shop-UI/shop-ui-inner.html\">- Product Page</a></li>\n                                    <li><a target=\"_blank\" href=\"Shop-UI/shop-ui-filter-grid.html\">- Filter Grid Page</a></li>\n                                    <li><a target=\"_blank\" href=\"Shop-UI/shop-ui-filter-list.html\">- Filter List Page</a></li>\n                                    <li><a target=\"_blank\" href=\"Shop-UI/shop-ui-add-to-cart.html\">- Checkout Page</a></li>\n                                    <li><a target=\"_blank\" href=\"Shop-UI/shop-ui-login.html\">- Login Page</a></li>\n                                    <li><a target=\"_blank\" href=\"Shop-UI/shop-ui-register.html\">- Registration Page</a></li>\n                                </ul>\n                            </li>\n                            {{-- End Shop UI --}}\n\n                            <li><a href=\"page_home8.html\">Option 4: Home Discover</a></li>\n                            <li><a href=\"page_home9.html\">Option 5: Home Creative</a></li>\n                            <li><a href=\"page_home10.html\">Option 6: Home Inspire</a></li>\n                            <li><a href=\"page_home11.html\">Option 7: Home Desire</a></li>\n                            <li><a href=\"page_jobs.html\">Option 8: Home Jobs</a></li>\n                            <li><a href=\"page_home3.html\">Option 9: Amazing Content</a></li>\n                            <li><a href=\"page_home6.html\">Option 10: Home Magazine</a></li>\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Option 11: Home Sidebar</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"page_home12.html\">- Home Left Sidebar</a></li>\n                                    <li><a href=\"page_home13.html\">- Home Right Sidebar</a></li>\n                                </ul>\n                            </li>\n                            <li><a href=\"page_home1.html\">Option 12: Home Basic v1</a></li>\n                            <li><a href=\"page_home2.html\">Option 13: Home Basic v2</a></li>\n                            <li><a href=\"page_home5.html\">Option 14: Home Basic v3</a></li>\n                            <li><a href=\"page_home4.html\">Option 15: Home Basic v4</a></li>\n                            <li><a href=\"page_home7.html\">Option 16: Home Basic v5</a></li>\n                        </ul>\n                    </li>\n                    {{-- End Home --}}\n\n                    {{-- Pages --}}\n                    <li class=\"dropdown\">\n                        <a href=\"javascript:void(0);\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                            Pages\n                        </a>\n                        <ul class=\"dropdown-menu\">\n                            {{-- About Pages --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">About Pages</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"page_about2.html\">About Us </a></li>\n                                    <li><a href=\"page_about3.html\">About Us 1</a></li>\n                                    <li><a href=\"page_about1.html\">About Us 2</a></li>\n                                    <li><a href=\"page_about.html\">About Us 3</a></li>\n                                    <li><a href=\"page_about_me.html\">About Me </a></li>\n                                    <li><a href=\"page_about_me1.html\">About Me 1</a></li>\n                                    <li><a href=\"page_about_me2.html\">About Me 2</a></li>\n                                    <li><a href=\"page_about_our_team.html\">About Our Team</a></li>\n                                    <li><a href=\"page_about_our_team1.html\">About Our Team 1</a></li>\n                                    <li><a href=\"page_about_our_team2.html\">About Our Team 2</a></li>\n                                </ul>\n                            </li>\n                            {{-- End About Pages --}}\n\n                            {{-- Service Pages --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Service Pages</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"page_services.html\">Our Services</a></li>\n                                    <li><a href=\"page_services1.html\">Our Services 1</a></li>\n                                    <li><a href=\"page_services2.html\">Our Services 2</a></li>\n                                    <li><a href=\"page_services3.html\">Our Services 3</a></li>\n                                </ul>\n                            </li>\n                            {{-- End Service Pages --}}\n\n                            {{-- Contacts --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                                    Contact Pages\n                                </a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"page_contact1.html\">Contacts Default</a></li>\n                                    <li><a href=\"page_contact2.html\">Contacts Option 1</a></li>\n                                    <li><a href=\"page_contact3.html\">Contacts Option 2</a></li>\n                                    <li><a href=\"page_contact4.html\">Contacts Option 3</a></li>\n                                    <li><a href=\"page_contact_advanced.php\">Contacts Advanced</a></li>\n                                </ul>\n                            </li>\n                            {{-- End Contacts --}}\n\n                            {{-- Profile Pages --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Profile Pages</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"page_profile.html\">Profile Main Page</a></li>\n                                    <li><a href=\"page_profile_me.html\">Profile Overview</a></li>\n                                    <li><a href=\"page_profile_users.html\">Profile Users</a></li>\n                                    <li><a href=\"page_profile_projects.html\">Profile Projects</a></li>\n                                    <li><a href=\"page_profile_comments.html\">Profile Comments</a></li>\n                                    <li><a href=\"page_profile_history.html\">Profile History</a></li>\n                                    <li><a href=\"page_profile_settings.html\">Profile Settings</a></li>\n                                </ul>\n                            </li>\n                            {{-- End Profile Pages --}}\n\n                            {{-- Job Pages --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Job Pages</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"page_jobs.html\">Jobs Main Page</a></li>\n                                    <li><a href=\"page_jobs1.html\">Jobs Main Page 1</a></li>\n                                    <li><a href=\"page_jobs_inner.html\">Jobs Description Default</a></li>\n                                    <li><a href=\"page_jobs_inner1.html\">Jobs Description Basic</a></li>\n                                    <li><a href=\"page_jobs_inner2.html\">Jobs Description Min</a></li>\n                                </ul>\n                            </li>\n                            {{-- End Job Pages --}}\n\n                            {{-- Pricing Tables --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Pricing Tables</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"page_pricing_colorful.html\">Colorful Pricing Tables</a></li>\n                                    <li><a href=\"page_pricing_flat.html\">Flat Pricing Tables</a></li>\n                                    <li><a href=\"page_pricing_light.html\">Light Pricing Tables</a></li>\n                                    <li><a href=\"page_pricing_mega.html\">Mega Pricing Tables</a></li>\n                                    <li><a href=\"page_pricing.html\">Default Pricing Tables</a></li>\n                                </ul>\n                            </li>\n                            {{-- End Pricing Tables --}}\n\n                            {{-- Login and Registration --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Login and Registration</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"page_registration.html\">Registration Page</a></li>\n                                    <li><a href=\"page_login.html\">Login Page</a></li>\n                                    <li><a href=\"page_registration1.html\">Registration Option</a></li>\n                                    <li><a href=\"page_login1.html\">Login Option</a></li>\n                                </ul>\n                            </li>\n                            {{-- End Login and Registration --}}\n\n                            {{-- FAQs Pages --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">FAQs Pages</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"page_faq1.html\">FAQs Page</a></li>\n                                    <li><a href=\"page_faq.html\">FAQs Basic</a></li>\n                                </ul>\n                            </li>\n                            {{-- End FAQs Pages --}}\n\n                            {{-- Email Tempaltes --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Email Templates</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li class=\"dropdown-submenu\">\n                                        <a href=\"javascript:void(0);\">Email Corporate</a>\n                                        <ul class=\"dropdown-menu\">\n                                            <li><a target=\"_blank\" href=\"Email-Templates/corporate/email_corporate_aqua.html\">Corporate Aqua Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/corporate/email_corporate_blue.html\">Corporate Blue Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/corporate/email_corporate_brown.html\">Corporate Brown Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/corporate/email_corporate_dark_blue.html\">Corporate Dark Blue Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/corporate/email_corporate_green.html\">Corporate Green Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/corporate/email_corporate_light_green.html\">Corporate Light Green Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/corporate/email_corporate_grey.html\">Corporate Grey Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/corporate/email_corporate_orange.html\">Corporate Orange Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/corporate/email_corporate_purple.html\">Corporate Purple Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/corporate/email_corporate_red.html\">Corporate Red Color</a></li>\n                                        </ul>\n                                    </li>\n                                    <li class=\"dropdown-submenu\">\n                                        <a href=\"javascript:void(0);\">Email Flat</a>\n                                        <ul class=\"dropdown-menu\">\n                                            <li><a target=\"_blank\" href=\"Email-Templates/flat/email_flat_aqua.html\">Flat Aqua Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/flat/email_flat_blue.html\">Flat Blue Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/flat/email_flat_brown.html\">Flat Brown Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/flat/email_flat_dark_blue.html\">Flat Dark Blue Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/flat/email_flat_green.html\">Flat Green Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/flat/email_flat_light_green.html\">Flat Light Green Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/flat/email_flat_grey.html\">Flat Grey Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/flat/email_flat_orange.html\">Flat Orange Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/flat/email_flat_purple.html\">Flat Purple Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/flat/email_flat_red.html\">Flat Red Color</a></li>\n                                        </ul>\n                                    </li>\n                                    <li class=\"dropdown-submenu\">\n                                        <a href=\"javascript:void(0);\">Email Modern</a>\n                                        <ul class=\"dropdown-menu\">\n                                            <li><a target=\"_blank\" href=\"Email-Templates/modern/email_modern_aqua.html\">Modern Aqua Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/modern/email_modern_blue.html\">Modern Blue Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/modern/email_modern_brown.html\">Modern Brown Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/modern/email_modern_dark_blue.html\">Modern Dark Blue Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/modern/email_modern_green.html\">Modern Green Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/modern/email_modern_light_green.html\">Modern Light Green Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/modern/email_modern_grey.html\">Modern Grey Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/modern/email_modern_orange.html\">Modern Orange Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/modern/email_modern_purple.html\">Modern Purple Color</a></li>\n                                            <li><a target=\"_blank\" href=\"Email-Templates/modern/email_modern_red.html\">Modern Red Color</a></li>\n                                        </ul>\n                                    </li>\n                                </ul>\n                            </li>\n                            {{-- End Email Tempaltes --}}\n\n                            {{-- Search Results --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Search Results</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"page_search_inner_full_width.html\">Search Results Full Width</a></li>\n                                    <li><a href=\"page_search_inner_left_sidebar.html\">Search Result Left Sidebar</a></li>\n                                    <li><a href=\"page_search_table.html\">Search Result Tables</a></li>\n                                </ul>\n                            </li>\n                            {{-- End Search Results --}}\n\n                            {{-- Coming Soon --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Coming Soon Pages</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"page_coming_soon.html\">Coming Soon</a></li>\n                                    <li><a href=\"page_coming_soon1.html\">Coming Soon 1</a></li>\n                                </ul>\n                            </li>\n                            {{-- End Coming Soon --}}\n\n                            {{-- Error Pages --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Error Pages</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"page_404_error.html\">404 Error Default</a></li>\n                                    <li><a href=\"page_404_error1.html\">404 Error Option 1</a></li>\n                                    <li><a href=\"page_404_error2.html\">404 Error Option 2</a></li>\n                                    <li><a href=\"page_404_error3.html\">404 Error Option 3</a></li>\n                                </ul>\n                            </li>\n                            {{-- End Error Pages --}}\n\n                            {{-- Invoice Page --}}\n                            <li><a href=\"page_invoice.html\">Invoice Page</a></li>\n                            {{-- End Invoice Page --}}\n\n                            {{-- Clients Page --}}\n                            <li><a href=\"page_clients.html\">Clients Page</a></li>\n                            {{-- End Clients Page --}}\n\n                            {{-- Column Pages --}}\n                            <li><a href=\"page_3_columns.html\">Three Columns Page</a></li>\n                            {{-- End Column Pages --}}\n\n                            {{-- Privacy Policy --}}\n                            <li><a href=\"page_privacy.html\">Privacy Policy</a></li>\n                            {{-- End Privacy Policy --}}\n\n                            {{-- Terms of Service --}}\n                            <li><a href=\"page_terms.html\">Terms of Service</a></li>\n                            {{-- End Terms of Service --}}\n\n                            {{-- Sub Level Menu --}}\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Sub Level 1</a>\n                                <ul class=\"dropdown-menu no-bottom-space\">\n                                    <li><a href=\"index.hmtl\">Sub Level 2</a></li>\n                                    <li class=\"dropdown-submenu\">\n                                        <a href=\"javascript:void(0);\">Sub Level 2</a>\n                                        <ul class=\"dropdown-menu\">\n                                            <li><a href=\"index.hmtl\">Sub Level 3</a></li>\n                                            <li><a href=\"index.hmtl\">Sub Level 3</a></li>\n                                            <li><a href=\"index.hmtl\">Sub Level 3</a></li>\n                                            <li><a href=\"index.hmtl\">Sub Level 3</a></li>\n                                        </ul>\n                                    </li>\n                                    <li><a href=\"index.hmtl\">Sub Level 2</a></li>\n                                    <li class=\"dropdown-submenu\">\n                                        <a href=\"javascript:void(0);\">Sub Level 2</a>\n                                        <ul class=\"dropdown-menu no-bottom-space\">\n                                            <li><a href=\"index.hmtl\">Sub Level 3</a></li>\n                                            <li><a href=\"index.hmtl\">Sub Level 3</a></li>\n                                            <li><a href=\"index.hmtl\">Sub Level 3</a></li>\n                                        </ul>\n                                    </li>\n                                </ul>\n                            </li>\n                            {{-- End Sub Level Menu --}}\n                        </ul>\n                    </li>\n                    {{-- End Pages --}}\n\n                    {{-- Blog --}}\n                    <li class=\"dropdown\">\n                        <a href=\"javascript:void(0);\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                            Blog\n                        </a>\n                        <ul class=\"dropdown-menu\">\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Blog Large Image</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"blog_large_right_sidebar1.html\">Right Sidebar</a></li>\n                                    <li><a href=\"blog_large_left_sidebar1.html\">Left Sidebar</a></li>\n                                    <li><a href=\"blog_large_full_width1.html\">Full Width</a></li>\n                                </ul>\n                            </li>\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Blog Medium Image</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"blog_medium_right_sidebar1.html\">Right Sidebar</a></li>\n                                    <li><a href=\"blog_medium_left_sidebar1.html\">Left Sidebar</a></li>\n                                    <li><a href=\"blog_medium_full_width1.html\">Full Width</a></li>\n                                </ul>\n                            </li>\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Blog Item Pages</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"blog_large_right_sidebar_item1.html\">Right Sidebar Item</a></li>\n                                    <li><a href=\"blog_large_left_sidebar_item1.html\">Left Sidebar Item</a></li>\n                                    <li><a href=\"blog_large_full_width_item1.html\">Full Width Item</a></li>\n                                </ul>\n                            </li>\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Blog Simple Pages</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"blog_large_right_sidebar.html\">Right Sidebar Large</a></li>\n                                    <li><a href=\"blog_medium_right_sidebar.html\">Right Sidebar Medium</a></li>\n                                    <li><a href=\"blog_large_full_width.html\">Full Width</a></li>\n                                    <li><a href=\"blog_large_right_sidebar_item.html\">Right Sidebar Item</a></li>\n                                    <li><a href=\"blog_large_full_width_item.html\">Full Width Item</a></li>\n                                </ul>\n                            </li>\n                            <li><a href=\"blog_masonry_3col.html\">Masonry Grid Blog</a></li>\n                            <li><a href=\"blog_timeline.html\">Blog Timeline</a></li>\n                        </ul>\n                    </li>\n                    {{-- End Blog --}}\n\n                    {{-- Portfolio --}}\n                    <li class=\"dropdown\">\n                        <a href=\"javascript:void(0);\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                            Portfolio\n                        </a>\n                        <ul class=\"dropdown-menu\">\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">No Space Boxed</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"portfolio_2_columns_grid_no_space.html\">2 Columns</a></li>\n                                    <li><a href=\"portfolio_3_columns_grid_no_space.html\">3 Columns</a></li>\n                                    <li><a href=\"portfolio_4_columns_grid_no_space.html\">4 Columns</a></li>\n                                </ul>\n                            </li>\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Grid Boxed</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"portfolio_2_columns_grid.html\">2 Columns</a></li>\n                                    <li><a href=\"portfolio_3_columns_grid.html\">3 Columns</a></li>\n                                    <li><a href=\"portfolio_4_columns_grid.html\">4 Columns</a></li>\n                                </ul>\n                            </li>\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Grid Text Boxed</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"portfolio_2_columns_grid_text.html\">2 Columns</a></li>\n                                    <li><a href=\"portfolio_3_columns_grid_text.html\">3 Columns</a></li>\n                                    <li><a href=\"portfolio_4_columns_grid_text.html\">4 Columns</a></li>\n                                </ul>\n                            </li>\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">No Space Full Width</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"portfolio_2_columns_fullwidth_no_space.html\">2 Columns</a></li>\n                                    <li><a href=\"portfolio_3_columns_fullwidth_no_space.html\">3 Columns</a></li>\n                                    <li><a href=\"portfolio_4_columns_fullwidth_no_space.html\">4 Columns</a></li>\n                                    <li><a href=\"portfolio_5_columns_fullwidth_no_space.html\">5 Columns</a></li>\n                                    <li><a href=\"portfolio_6_columns_fullwidth_no_space.html\">6 Columns</a></li>\n                                </ul>\n                            </li>\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Grid Full Width</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"portfolio_2_columns_fullwidth.html\">2 Columns</a></li>\n                                    <li><a href=\"portfolio_3_columns_fullwidth.html\">3 Columns</a></li>\n                                    <li><a href=\"portfolio_4_columns_fullwidth.html\">4 Columns</a></li>\n                                    <li><a href=\"portfolio_5_columns_fullwidth.html\">5 Columns</a></li>\n                                    <li><a href=\"portfolio_6_columns_fullwidth.html\">6 Columns</a></li>\n                                </ul>\n                            </li>\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Grid Text Full Width</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"portfolio_2_columns_fullwidth_text.html\">2 Columns</a></li>\n                                    <li><a href=\"portfolio_3_columns_fullwidth_text.html\">3 Columns</a></li>\n                                    <li><a href=\"portfolio_4_columns_fullwidth_text.html\">4 Columns</a></li>\n                                    <li><a href=\"portfolio_5_columns_fullwidth_text.html\">5 Columns</a></li>\n                                    <li><a href=\"portfolio_6_columns_fullwidth_text.html\">6 Columns</a></li>\n                                </ul>\n                            </li>\n                            <li><a href=\"portfolio_hover_colors.html\">Portfolio Hover Colors</a></li>\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Portfolio Items</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"portfolio_single_item.html\">Single Item</a></li>\n                                    <li><a href=\"portfolio_old_item.html\">Basic Item 1</a></li>\n                                    <li><a href=\"portfolio_old_item1.html\">Basic Item 2</a></li>\n                                </ul>\n                            </li>\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Portfolio Basic Pages</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"portfolio_old_text_blocks.html\">Basic Grid Text</a></li>\n                                    <li><a href=\"portfolio_old_2_column.html\">Basic 2 Columns</a></li>\n                                    <li><a href=\"portfolio_old_3_column.html\">Basic 3 Columns</a></li>\n                                    <li><a href=\"portfolio_old_4_column.html\">Basic 4 Columns</a></li>\n                                </ul>\n                            </li>\n                        </ul>\n                    </li>\n                    {{-- End Portfolio --}}\n\n                    {{-- Features --}}\n                    <li class=\"dropdown\">\n                        <a href=\"javascript:void(0);\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                            Features\n                        </a>\n                        <ul class=\"dropdown-menu\">\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Headers</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"feature_header_default.html\">Header Default</a></li>\n                                    <li><a href=\"feature_header_v1.html\">Header v1</a></li>\n                                    <li><a href=\"feature_header_v2.html\">Header v2</a></li>\n                                    <li><a href=\"feature_header_v3.html\">Header v3</a></li>\n                                    <li><a href=\"feature_header_v4.html\">Header v4</a></li>\n                                    <li><a href=\"feature_header_v5.html\">Header v5</a></li>\n                                    <li><a href=\"feature_header_v6_transparent.html\">Header v6 Transparent</a></li>\n                                    <li><a href=\"feature_header_v6_semi_dark_transparent.html\">Header v6 Dark Transparent</a></li>\n                                    <li><a href=\"feature_header_v6_semi_white_transparent.html\">Header v6 White Transparent</a></li>\n                                    <li><a href=\"feature_header_v6_border_bottom.html\">Header v6 Border Bottom</a></li>\n                                    <li><a href=\"feature_header_v6_classic_dark.html\">Header v6 Classic Dark</a></li>\n                                    <li><a href=\"feature_header_v6_classic_white.html\">Header v6 Classic White</a></li>\n                                    <li><a href=\"feature_header_v6_dark_dropdown.html\">Header v6 Dark Dropdown</a></li>\n                                    <li><a href=\"feature_header_v6_dark_scroll.html\">Header v6 Dark on Scroll</a></li>\n                                    <li><a href=\"feature_header_v6_dark_search.html\">Header v6 Dark Search</a></li>\n                                    <li><a href=\"feature_header_v6_dark_res_nav.html\">Header v6 Dark in Responsive</a></li>\n                                </ul>\n                            </li>\n                            <li class=\"dropdown-submenu\">\n                                <a href=\"javascript:void(0);\">Footers</a>\n                                <ul class=\"dropdown-menu\">\n                                    <li><a href=\"feature_footer_default.html#footer-default\">Footer Default</a></li>\n                                    <li><a href=\"feature_footer_v1.html#footer-v1\">Footer v1</a></li>\n                                    <li><a href=\"feature_footer_v2.html#footer-v2\">Footer v2</a></li>\n                                    <li><a href=\"feature_footer_v3.html#footer-v3\">Footer v3</a></li>\n                                    <li><a href=\"feature_footer_v4.html#footer-v4\">Footer v4</a></li>\n                                    <li><a href=\"feature_footer_v5.html#footer-v5\">Footer v5</a></li>\n                                    <li><a href=\"feature_footer_v6.html#footer-v6\">Footer v6</a></li>\n                                    <li><a href=\"feature_footer_v7.html#footer-v7\">Footer v7</a></li>\n                                </ul>\n                            </li>\n                            <li><a href=\"feature_gallery.html\">Gallery Examples</a></li>\n                            <li><a href=\"feature_animations.html\">Animations on Scroll</a></li>\n                            <li><a href=\"feature_parallax_counters.html\">Parallax Counters</a></li>\n                            <li><a href=\"feature_parallax_blocks.html\">Parallax Blocks</a></li>\n                            <li><a href=\"feature_funny_boxes.html\">Funny Boxes</a></li>\n                        </ul>\n                    </li>\n                    {{-- End Features --}}\n\n                    {{-- Shortcodes --}}\n                    <li class=\"dropdown mega-menu-fullwidth\">\n                        <a href=\"javascript:void(0);\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                            Shortcodes\n                        </a>\n                        <ul class=\"dropdown-menu\">\n                            <li>\n                                <div class=\"mega-menu-content disable-icons\">\n                                    <div class=\"container\">\n                                        <div class=\"row equal-height\">\n                                            <div class=\"col-md-3 equal-height-in\">\n                                                <ul class=\"list-unstyled equal-height-list\">\n                                                    <li><h3>Typography &amp; Components</h3></li>\n\n                                                    {{-- Typography --}}\n                                                    <li><a href=\"shortcode_typo_general.html\"><i class=\"fa fa-sort-alpha-asc\"></i> General Typography</a></li>\n                                                    <li><a href=\"shortcode_typo_headings.html\"><i class=\"fa fa-magic\"></i> Headings Options</a></li>\n                                                    <li><a href=\"shortcode_typo_dividers.html\"><i class=\"fa fa-ellipsis-h\"></i> Dividers</a></li>\n                                                    <li><a href=\"shortcode_typo_blockquote.html\"><i class=\"fa fa-quote-left\"></i> Blockquote Blocks</a></li>\n                                                    <li><a href=\"shortcode_typo_boxshadows.html\"><i class=\"fa fa-asterisk\"></i> Box Shadows</a></li>\n                                                    <li><a href=\"shortcode_typo_testimonials.html\"><i class=\"fa fa-comments\"></i> Testimonials</a></li>\n                                                    <li><a href=\"shortcode_typo_tagline_boxes.html\"><i class=\"fa fa-tasks\"></i> Tagline Boxes</a></li>\n                                                    <li><a href=\"shortcode_typo_grid.html\"><i class=\"fa fa-align-justify\"></i> Grid Layouts</a></li>\n                                                    {{-- End Typography --}}\n\n                                                    {{-- Components --}}\n                                                    <li><a href=\"shortcode_compo_messages.html\"><i class=\"fa fa-comment\"></i> Alerts &amp; Messages</a></li>\n                                                    <li><a href=\"shortcode_compo_labels.html\"><i class=\"fa fa-tags\"></i> Labels &amp; Badges</a></li>\n                                                    <li><a href=\"shortcode_compo_media.html\"><i class=\"fa fa-volume-down\"></i> Audio/Videos &amp; Images</a></li>\n                                                    <li><a href=\"shortcode_compo_pagination.html\"><i class=\"fa fa-arrows-h\"></i> Paginations</a></li>\n                                                    {{-- End Components --}}\n                                                </ul>\n                                            </div>\n                                            <div class=\"col-md-3 equal-height-in\">\n                                                <ul class=\"list-unstyled equal-height-list\">\n                                                    <li><h3>Buttons &amp; Icons</h3></li>\n\n                                                    {{-- Buttons --}}\n                                                    <li><a href=\"shortcode_btn_general.html\"><i class=\"fa fa-flask\"></i> General Buttons</a></li>\n                                                    <li><a href=\"shortcode_btn_brands.html\"><i class=\"fa fa-html5\"></i> Brand &amp; Social Buttons</a></li>\n                                                    <li><a href=\"shortcode_btn_effects.html\"><i class=\"fa fa-bolt\"></i> Loading &amp; Hover Effects</a></li>\n                                                    {{-- End Buttons --}}\n\n                                                    {{-- Icons --}}\n                                                    <li><a href=\"shortcode_icon_general.html\"><i class=\"fa fa-chevron-circle-right\"></i> General Icons</a></li>\n                                                    <li><a href=\"shortcode_icon_fa.html\"><i class=\"fa fa-chevron-circle-right\"></i> Font Awesome Icons</a></li>\n                                                    <li><a href=\"shortcode_icon_line.html\"><i class=\"fa fa-chevron-circle-right\"></i> Line Icons</a></li>\n                                                    <li><a href=\"shortcode_icon_glyph.html\"><i class=\"fa fa-chevron-circle-right\"></i> Glyphicons Icons (Bootstrap)</a></li>\n                                                    <li><a href=\"shortcode_icon_glyph_pro.html\"><i class=\"fa fa-chevron-circle-right\"></i> Glyphicons Icons Pro</a></li>\n                                                    {{-- End Icons --}}\n                                                </ul>\n                                            </div>\n                                            <div class=\"col-md-3 equal-height-in\">\n                                                <ul class=\"list-unstyled equal-height-list\">\n                                                    <li><h3>Common elements</h3></li>\n\n                                                    {{-- Content Boxes --}}\n                                                    <li><a href=\"shortcode_box_general.html\"><i class=\"fa fa-cog\"></i> General Content Boxes</a></li>\n                                                    <li><a href=\"shortcode_box_colored.html\"><i class=\"fa fa-align-center\"></i> Colored Boxes</a></li>\n                                                    <li><a href=\"shortcode_thumbnails.html\"><i class=\"fa fa-image\"></i> Thumbnails</a></li>\n                                                    <li><a href=\"shortcode_accordion_and_tabs.html\"><i class=\"fa fa-list-ol\"></i> Accordion &amp; Tabs</a></li>\n                                                    <li><a href=\"shortcode_timeline1.html\"><i class=\"fa fa-dot-circle-o\"></i> Timeline Option 1</a></li>\n                                                    <li><a href=\"shortcode_timeline2.html\"><i class=\"fa fa-dot-circle-o\"></i> Timeline Option 2</a></li>\n                                                    <li><a href=\"shortcode_table_general.html\"><i class=\"fa fa-table\"></i> Tables</a></li>\n                                                    <li><a href=\"shortcode_compo_progress_bars.html\"><i class=\"fa fa-align-left\"></i> Progress Bars</a></li>\n                                                    <li><a href=\"shortcode_compo_panels.html\"><i class=\"fa fa-columns\"></i> Panels</a></li>\n                                                    {{-- End Common Elements --}}\n                                                </ul>\n                                            </div>\n                                            <div class=\"col-md-3 equal-height-in\">\n                                                <ul class=\"list-unstyled equal-height-list\">\n                                                    <li><h3>Forms &amp; Infographics</h3></li>\n\n                                                    {{-- Forms --}}\n                                                    <li><a href=\"shortcode_form_general.html\"><i class=\"fa fa-bars\"></i> Common Bootstrap Forms</a></li>\n                                                    <li><a href=\"shortcode_form_general1.html\"><i class=\"fa fa-bars\"></i> General Unify Forms</a></li>\n                                                    <li><a href=\"shortcode_form_advanced.html\"><i class=\"fa fa-bars\"></i> Advanced Forms</a></li>\n                                                    <li><a href=\"shortcode_form_layouts.html\"><i class=\"fa fa-bars\"></i> Form Layouts</a></li>\n                                                    <li><a href=\"shortcode_form_layouts_advanced.html\"><i class=\"fa fa-bars\"></i> Advanced Layout Forms</a></li>\n                                                    <li><a href=\"shortcode_form_states.html\"><i class=\"fa fa-bars\"></i> Form States</a></li>\n                                                    <li><a href=\"shortcode_form_sliders.html\"><i class=\"fa fa-bars\"></i> Form Sliders</a></li>\n                                                    <li><a href=\"shortcode_form_modals.html\"><i class=\"fa fa-bars\"></i> Modals</a></li>\n                                                    {{-- End Forms --}}\n\n                                                    {{-- Infographics --}}\n                                                    <li><a href=\"shortcode_carousels.html\"><i class=\"fa fa-sliders\"></i> Carousel Examples</a></li>\n                                                    <li><a href=\"shortcode_compo_charts.html\"><i class=\"fa fa-pie-chart\"></i> Charts &amp; Countdowns</a></li>\n                                                    <li><a href=\"shortcode_maps_google.html\"><i class=\"fa fa-map-marker\"></i> Google Maps</a></li>\n                                                    <li><a href=\"shortcode_maps_vector.html\"><i class=\"fa fa-align-center\"></i> Vector Maps</a></li>\n                                                    {{-- End Infographics --}}\n                                                </ul>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                            </li>\n                        </ul>\n                    </li>\n                    {{-- End Shortcodes --}}\n\n                    {{-- Misc Pages --}}\n                    <li class=\"dropdown\">\n                        <a href=\"javascript:void(0);\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                            Misc\n                        </a>\n                        <ul class=\"dropdown-menu pull-right\">\n                            <li><a href=\"page_misc_blank.html\">Blank page</a></li>\n                            <li><a href=\"page_misc_boxed.html\">Boxed Page</a></li>\n                            <li><a href=\"page_misc_boxed_img.html\">Boxed Image Page</a></li>\n                            <li><a href=\"page_misc_boxed_fixed_header.html\">Boxed Fixed Menu</a></li>\n                            <li><a href=\"page_misc_fixed_header.html\">Fixed Menu</a></li>\n                            <li><a href=\"page_misc_dark.html\">Dark Page</a></li>\n                            <li><a href=\"page_misc_dark_boxed.html\">Dark Boxed Page</a></li>\n                            <li><a href=\"page_misc_dark_other_color.html\">Dark Page with Theme Color</a></li>\n                            <li><a href=\"page_misc_sticky_footer.html\">Sticky Footer Example</a></li>\n                        </ul>\n                    </li>\n                    {{-- End Misc Pages --}}\n\n                    {{-- Search Block --}}\n                    <li>\n                        <i class=\"search fa fa-search search-btn\"></i>\n                        <div class=\"search-open\">\n                            <div class=\"input-group animated fadeInDown\">\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n                                <span class=\"input-group-btn\">\n                                    <button class=\"btn-u\" type=\"button\">Go</button>\n                                </span>\n                            </div>\n                        </div>\n                    </li>\n                    {{-- End Search Block --}}\n                </ul>\n            </div><!--/end container--}}\n        </div><!--/navbar-collapse--}}",
+			"li",
+			"lease_id",
+			"emergency_contact",
+			"email",
+			"last_name",
+			"span",
+			"user",
+			"log",
+			"property",
+			"value",
+			"item",
+			"]);\n",
+			"Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus",
+			"created",
+			"createe",
+			"user::created",
+			"attempt",
+			"these credentials do not match",
+			"login",
+			"date",
+			"unit->leases[0]",
+			"' . ",
+			" . '",
+			"User::created",
+			"mortgage payment",
+			"lease_",
+			"unit",
+			"user",
+			");\n",
+			"breadcrumb",
+			".margin-bottom",
+			"dd($",
+			"dd(",
+			"map-img.png",
+			"'fonts",
+			"bootstrap",
+			"../f",
+			"fa",
+			"$interval",
+			".\"\\n\"",
+			"\"l\"",
+			"l",
+			"{$un",
+			"date",
+			"rent_late_date",
+			"leases",
+			"->toArray()"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"' . Config::get(site.title);",
+			"callback",
+			");\n",
+			"fa",
+			"data['",
+			";?></td>",
+			"<td><?php echo ",
+			"<td>$this->data[",
+			"]</td>",
+			"",
+			"</div>",
+			"<div class=\"formItem\">",
+			"<div class=\"formItem\">\n,\n,\n\n		",
+			"\n,\n,\n\n		",
+			"\n,\n		",
+			"\n\n		",
+			"\n		",
+			"'\n		",
+			"</tr>\n		",
+			"</tr>\n		\n		",
+			"\n		<tr ",
+			"\n		<tr",
+			"\\n <tr ",
+			"\\n<tr "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "catalog.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"formbui",
+				"vendor/laravelcollective/html/src/FormBuilder.php"
+			],
+			[
+				"formfac",
+				"vendor/laravelcollective/html/src/FormFacade.php"
+			],
+			[
+				"verify",
+				"app/Http/Middleware/VerifyCsrfToken.php"
+			],
+			[
+				"form",
+				"vendor/laravelcollective/html/src/FormBuilder.php"
+			],
+			[
+				"env",
+				"vendor/laravel/framework/src/Illuminate/Foundation/EnvironmentDetector.php"
+			],
+			[
+				"abrstract",
+				"p.gap-2014/library/AutoMatch/Abstract.php"
+			],
+			[
+				"srapdfrepor",
+				"p.cat/application/views/scripts/sra/sraPDFreport.phtml"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"/private/var/www/projects/sqp2/sqp2.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "getfac",
+		"selected_items":
+		[
+			[
+				"getfac",
+				"getFacadeAccessor"
+			]
+		],
+		"width": 1124.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 332.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

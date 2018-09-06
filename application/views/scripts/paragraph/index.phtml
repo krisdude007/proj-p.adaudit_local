@@ -1,0 +1,295 @@
+<style>
+    .container {
+        width: 1350px;
+    }  
+
+.ui-front{z-index: 5000;}
+
+.container a i.fa {
+    color: #2aabd2;
+}
+
+#grey-scale{
+    color: #587272;
+    font-size: 80%;
+}
+</style>
+<script type='text/javascript'>
+    $(function() {
+        $('#audit_start_dt').datetimepicker({
+          format: 'YYYY-MM-DD'  
+        });
+        $('#audit_end_dt').datetimepicker({
+          format: 'YYYY-MM-DD'  
+        });
+    });
+
+</script>
+<div class="container">
+    <form method='post' action="/paragraph/updateaudit" id='form-audit' class="form-horizontal mt20">
+    <div class='form-group'>
+        <input type='hidden' id='ad_id' name='ad_id' value='<?= $_SESSION['adId']; ?>'/>
+        <div class='col-sm-2' style='margin-top: 1%;'><h3 style='color: #2aabd2;'><?php echo $this->adRec[0]['ad_txt']; ?></h3></div>
+        <div class="col-sm-3">
+                <label for="share_with">Audited By: </label>
+                <select  name="audited_by" class="form-control chosen-select" data-placeholder="Audited By">
+                    <?php foreach ($this->users as $user): ?>
+                        <?php if ($this->auditedBy == $user['user_id']): ?>
+                        <option value="<?= $user['user_id'] ?>" selected><?= $user['user_full_nm']; ?></option>
+                        <?php else: ?>
+                        <option value="<?= $user['user_id'] ?>"><?= $user['user_full_nm']; ?></option>
+                        <?php endif; ?>
+                    <?php endforeach;?>
+                </select>
+        </div>
+        <div class='col-sm-2'><label for="audit_start_dt">Audit Start Date: </label>
+            <div class='input-group date required datetimepicker' id='audit_start_dt'>
+                <input type='text' name='audit_start_dt' class="form-control" value='<?php echo $this->adRec[0]['audit_start_dt']; ?>' placeholder="Select the Audit Start Date" required/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>            
+        </div>
+        <div class='col-sm-2'>
+            <label for="audit_end_dt">Audit End Date: </label>
+            <div class='input-group date require datetimepicker' id='audit_end_dt'>
+                <input type='text' name='audit_end_dt' class="form-control" value='<?php echo $this->adRec[0]['audit_end_dt']; ?>' placeholder="Select the Audit End Date" required/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>            
+        </div>
+        <div class='col-sm-2' style='margin-top:2%;'>
+            <button id='update-audit' class='btn btn-primary'>Update</button>
+        </div>
+    </div>
+    </form>
+    <div class='clearfix'></div>
+    <div id="toolbar">
+        <button class="btn btn-warning" onclick="history.go(-1)">Return to AD</button>
+        <a class="btn btn-primary" href="/paragraph/create/id/<?= $_SESSION['adId'];?>">New Paragraph</a>
+    </div>
+<!--<p>&nbsp;</p>-->
+    <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%"
+        data-toolbar="#toolbar"
+        data-search="true"
+        data-show-refresh="true"
+        data-show-toggle="true"
+        data-show-columns="true"
+        data-show-export="true"
+        data-show-pagination-switch="true"
+        data-pagination="true"
+        data-id-field="id"
+        data-page-list="[10, 25, 50, 100, ALL]"
+        data-show-footer="false"
+        data-cookie="true"
+        data-cookie-id-table="adViewTable"
+    >
+    </table>
+
+</div>
+
+<script>
+$(document).ready(function() {
+    
+    $('#table').bootstrapTable({
+        
+        url:  '/api/getparaghsbyad',
+        type: 'POST',
+            
+            columns: [{
+            field: 'paragraph_txt',
+            title: 'Paragraph',
+            sortable: 'true',
+            width: '10%',
+            events: toolEvent,
+            formatter: nameFormatter
+        }, {
+            field: 'if_txt',
+            title: 'If',
+            sortable: 'true',
+            width: '40%',
+            formatter: actionableFormatter
+        }, {
+            field: 'do_txt',
+            title: 'Do',
+            sortable: 'true',
+            width: '40%',
+            formatter: actionableFormatter
+        }, {
+            field: 'tools',
+            title: 'Action',
+            align: 'center',
+            width: '10',
+            events: toolEvent,
+            formatter: toolFormatter
+        }],
+        exportDataType: 'all',
+        
+    });
+});
+function intFormatter(value, row, index)
+{
+    if(value == null){
+        return value
+    }else{
+        return nl2br(value);
+    }
+}
+
+function actionableFormatter (value, row, index)
+{
+    var str = value;
+    if (row.is_actionable === '0'){
+        str = '<i style="color: red;">'+value+'</i>';
+    } 
+    return [str];
+}
+
+function nameFormatter(value, row, index) {
+return [
+         '<a class="view" href="/paragraph/view/id/'+row.ad_paragraph_id+'" title="View this row '+row.ad_paragraph_id+'">',
+         row.paragraph_txt,
+        '</a>'
+     ].join('');
+ }
+ 
+function operationOk(message) {
+    $('#success-indicator>div.alert').text(message);
+    $('#success-indicator').slideDown().delay(3000).slideUp();
+}
+
+function toolFormatter(value, row, index)
+{   
+    if (row.is_actionable === '0') {
+    return [
+        '<a class="edit" href="/paragraph/edit/id/'+row.ad_paragraph_id+'"" title="Edit this row '+row.ad_paragraph_id+'">',
+        '<i class="fa fa-pencil"></i>',
+        '</a>',
+        '&nbsp;',
+        '<a class="is-actionable" href="javascript:void(0)" title="Make actionable row id '+row.ad_paragraph_id+'">',
+        '<i class="fa fa-eye"></i>',
+        '</a>',
+        '&nbsp;',
+        '<a class="delete" href="javascript:void(0)" title="Delete row id '+row.ad_paragraph_id+'">',
+        '<i class="fa fa-trash"></i>',
+        '</a>',
+    ].join('');
+    } else {
+    return [
+        '<a class="edit" href="/paragraph/edit/id/'+row.ad_paragraph_id+'"" title="Edit this row '+row.ad_paragraph_id+'">',
+        '<i class="fa fa-pencil"></i>',
+        '</a>',
+        '&nbsp;',
+        '<a class="reset-actionable" href="javascript:void(0)" title="Reset actionable for row id '+row.ad_paragraph_id+'">',
+        '<i class="fa fa-eye-slash"></i>',
+        '</a>',
+        '&nbsp;',
+        '<a class="delete" href="javascript:void(0)" title="Delete row id '+row.ad_paragraph_id+'">',
+        '<i class="fa fa-trash"></i>',
+        '</a>',
+    ].join('');
+    }
+}
+
+function sortFormatter(value, row, index)
+{
+    return value.split(',').sort();
+}
+window.toolEvent = {
+    'click .delete': function(e, value, row, index){
+        BootstrapDialog.confirm({
+            title:"Confirm",
+            message:"Are you sure you want to delete this AD Paragraph?",
+            type: BootstrapDialog.TYPE_WARNING,
+            callback: function(result){
+                if(result){
+                    doDelete(row.ad_paragraph_id);
+                }else{
+                }
+            }
+        });
+    },
+    
+    'click .is-actionable': function(e, value, row, index){
+        BootstrapDialog.confirm({
+            title:"Confirm",
+            message:"Are you sure you want to make this AD Paragraph actionable?",
+            type: BootstrapDialog.TYPE_WARNING,
+            callback: function(result){
+                if(result){
+                    doActionable(row.ad_paragraph_id, row.is_actionable);
+                }else{
+                }
+            }
+        });
+    },
+    
+    'click .reset-actionable': function(e, value, row, index){
+        BootstrapDialog.confirm({
+            title:"Confirm",
+            message:"Are you sure you want to make this AD Paragraph actionable?",
+            type: BootstrapDialog.TYPE_WARNING,
+            callback: function(result){
+                if(result){
+                    doResetActionable(row.ad_paragraph_id, row.is_actionable);
+                }else{
+                }
+            }
+        });
+    },
+}
+
+    function doDelete(rowID){
+        var url = "/paragraph/delete";
+        var result = doAjax('post', url, {id: rowID});
+        if(result.message === 'ok'){
+            BootstrapDialog.alert({
+                title:'Success', 
+                message:'The AD Paragraph was deleted.',
+                type:BootstrapDialog.TYPE_SUCCESS
+            });
+          $('#table').bootstrapTable('refresh');
+        }else{
+            doError('There was an error deleting the AD Paragraph.');
+        }
+    }
+    
+    function doActionable(rowID, actionable){
+        var url = "/paragraph/setactionable";
+        var result = doAjax('post', url, {id: rowID, actionable: actionable});
+        if(result.message === 'ok'){
+//            BootstrapDialog.alert({
+//                title:'Success', 
+//                message:'The AD Paragraph was made actionable.',
+//                type:BootstrapDialog.TYPE_SUCCESS
+//            });
+          $('#table').bootstrapTable('refresh');
+        }else{
+            doError('There was an error making the AD Paragraph actionable.');
+        }
+    }
+    
+    function doResetActionable(rowID, actionable){
+        var url = "/paragraph/setactionable";
+        var result = doAjax('post', url, {id: rowID, actionable: actionable});
+        if(result.message === 'ok'){
+//            BootstrapDialog.alert({
+//                title:'Success', 
+//                message:'The AD Paragraph was made actionable.',
+//                type:BootstrapDialog.TYPE_SUCCESS
+//            });
+          $('#table').bootstrapTable('refresh');
+        }else{
+            doError('There was an error making the AD Paragraph actionable.');
+        }
+    }
+
+    function doError(message){
+        BootstrapDialog.alert({
+            title:'Error', 
+            message: message,
+            type:BootstrapDialog.TYPE_DANGER
+        });
+    }
+</script>

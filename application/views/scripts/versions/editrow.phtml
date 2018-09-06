@@ -1,0 +1,36 @@
+<div class="container">
+    <section class="outlined-box">
+        <article>
+            <strong><?= $this->document['name']?></strong>
+            Revision Number: <?= $this->version['revision_num']?>
+            Revison Date: <?= $this->version['revision_dt']?>
+        </article>
+        <?= $this->render('/partials/flash_messages.phtml');?>
+        <article>
+            <form action="/versions/updaterow" method="POST" class="form-horizontal">
+                <input type="hidden" name="document_id" value="<?=$this->document_id ?>">
+                <input type="hidden" name="document_version_id" value="<?=$this->document_version_id ?>">
+                <input type="hidden" name="id" value="<?= $this->row_id ?>">
+                <?php foreach($this->row as $key=>$value):?>
+                    <div class="form-group">
+                        <label for="<?=$key?>"><?=$key?></label>
+                        <input type="text" id="<?=$key?>" name="<?=$key?>" class="form-control" value="<?=$value?>">
+                    </div>
+                <?php endforeach; ?>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-danger delete-button">Delete Row</button>
+            </form>
+        </article>
+    </section>
+</div>
+
+<script>
+document.querySelector('button.delete-button').onclick = function(){
+    swal({   title: "Are you sure that you want to delete this row?",   text: "",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, delete it!",   closeOnConfirm: false }, function(){   doDelete();});
+};
+function doDelete(){
+    var url = "/versions/deleterow/id/" + <?=$this->document_id?> + "/vid/" + <?=$this->document_version_id?> + "/rid/" + <?=$this->row_id?> ;
+    window.location.assign(url);
+    swal("Deleted!", "This row has been deleted.", "success");
+}
+</script>

@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-3"><h4>Source</h4></div>
+    <div class="col-md-3"><h4></h4></div>
+    <div class="col-md-3"><h4>Destination</h4></div>
+</div>
+<?php $sourceColumnValue = ''; ?>
+<?php foreach($this->sourceColumns as $key=>$value) : ?>
+    <?php $sourceColumnValue = $value; ?>
+<div class="row">
+    <div class="col-md-5"><span class="label label-mapping">
+        <?php if(is_null($value)) : ?>
+            <i class="fa fa-ban text-muted"></i>
+        <?php else: ?>
+            <?= $value; ?>
+        <?php endif; ?></span></div>
+    <div class="col-md-1 text-center"><i class="fa fa-arrow-circle-right"></i></div>
+    <div class="col-md-5">
+        <select class="select-mapping" name="select_mapping[]" id="select_mapping">
+            <option value="ignore">Ignore</option>
+            <?php foreach($this->destinationColumns as $key=>$value): ?>
+                <option value="<?= $value; ?>"
+                    <?php if($sourceColumnValue == $this->destinationColumns[$key]) 
+                        echo ' selected '?> > <?= $value; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+</div>
+<?php endforeach; ?>
+
+<div class="row mt20">
+    <div class="col-md-1 col-md-offset-8">
+    <div class="form-group">
+    <button class="btn btn-primary btn-sm" type="submit">Upload</button>
+    </div>
+    </div>
+</div>

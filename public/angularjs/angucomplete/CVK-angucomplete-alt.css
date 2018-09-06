@@ -1,0 +1,17 @@
+.angucomplete-dropdown {
+    width: 868px;
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+.angucomplete-row {
+    padding: 5px;
+    color: #000000;
+    margin-bottom: 4px;
+    clear: both;
+}
+
+.angucomplete-selected-row {
+    background-color: #5bc0de; /* match bootstrap info color */
+    color: #ffffff;
+}

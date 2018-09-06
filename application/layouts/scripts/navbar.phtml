@@ -1,0 +1,70 @@
+<style>
+
+</style>
+<nav class="cavok-bootstrap-menu">
+    <div class="navbar navbar-default <?= APPLICATION_ENV ?>" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/"><img alt="CAVOK Group" src="/images/logo/logo-ht30.png"></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-menubuilder">
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <p class="navbar-text"><?= $this->app_name?> 
+                        <?php if(isset($this->projectName)): ?>
+                            &mdash; <?=$this->projectName?>
+                        <?php endif; ?>
+                        </p>
+                    </li>
+                </ul>
+
+                <!-- Begin client, user and application menus -->
+                <ul class="nav navbar-nav pull-right">
+                    <!-- Begin client selection menu -->
+                    <?php echo $this->partial('partials/clientmenu.phtml', array(
+                        'customers' => $this->header_customers,
+                        'current_customer' => $this->header_current_customer)) ?>
+                    <!-- End client selection menu -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?=$this->LogInOutURL?>">Sign Out</a></li>
+                        </ul>
+                    </li><!--end li.dropdown -->
+
+                    <!-- Begin App Selection Menu -->
+                    <?php
+                    if(isset($this->appMenu)) {
+                    // appmenu.phtml is partial for our app menu
+                        echo $this->partial ( 'partials/appmenu.phtml', array (
+                            'menu'        => $this->appMenu,
+                            'ProfileURL'  => $this->ProfileURL,
+                            'LogInOutURL' => $this->LogInOutURL,
+                            'header_current_customer' => $this->header_current_customer,
+                            'header_customers' => $this->header_customers,
+                            'user' => $this->user,
+                            'app'  => $this->app
+                            ) );
+                    }
+                    ?>
+                    <!-- End App Selection Menu -->
+                </ul><!-- end ul.nav navbar-nav pull-right -->
+                <!-- Eng client, user and application menu -->
+            </div>
+        </div>
+    </div>
+</nav>
+
+<nav class="cavok-application-menu navbar navbar-default">
+    <!-- Application specific menu generated from Application.ini configuration -->
+    <?php echo $this->navigation()->menu()->setUlClass('nav navbar-nav'); ?>
+    <!-- End application specific menu -->
+</nav>

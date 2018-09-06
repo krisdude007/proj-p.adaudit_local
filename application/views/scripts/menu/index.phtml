@@ -1,0 +1,315 @@
+<div class="container">
+    <div id="fail-indicator"><div class="alert alert-danger" role="alert">The operation you tried failed.</div></div>
+    <div id="success-indicator"><div class="alert alert-success" role="alert">The operation you attempted succeeded.</div></div>
+
+    <button class="btn btn-primary btn-sm new-menu-item">New Menu Item</button>
+    <div id="treeViewDiv" class="mt40"></div>
+</div><!-- /.container -->
+
+<script type="text/javascript">
+
+function operationOk(message) {
+    $('#success-indicator>div.alert').text(message);
+    $('#success-indicator').slideDown().delay(3000).slideUp();
+}
+
+function operationFail(message) {
+    $('#fail-indicator>div.alert').text(message);
+    $('#fail-indicator').slideDown();
+}
+
+// Store the data for the moved menu item.
+function doReorder(data) {
+    var post = $.post('/menu/reorder',{
+        data: data
+    })
+}
+    function doEditDialog(data) {
+        var fields = new Bs3form();
+        item = JSON.parse(data);
+        var message = '<div class="container"><div class="col-md-5"><form id="editMenuItemForm" class="form-horizontal">';
+        message += fields.hiddenField({
+            name:'id',
+            value:item.data.id}),
+        message += fields.textField({
+            name:'text',
+            label:'Label',
+            value:item.data.text,
+            required:true,
+            class:'required',
+            placeholder:'Enter the menu item label'}),
+        message += fields.textField({
+            name:'controller',
+            label:'Controller',
+            value:item.data.controller,
+            required:true,
+            class:'required',
+            placeholder:'Enter the controller'}),
+        message += fields.textField({
+            name:'action',
+            label:'Action',
+            value:item.data.action,
+            required:true,
+            class:'required',
+            placeholder:'Enter the action method'}),
+        message += fields.selectField({
+            name:'access',
+            label:'Access',
+            value:item.data.access,
+            options: item.data.access_options,
+            required:true,
+            class:'required chosen-select',
+            placeholder:'Enter the menu access'}),
+        message += fields.textField({
+            name:'icon',
+            label:'Menu Icon',
+            value:item.data.icon,
+            required:true,
+            class:'required',
+            placeholder:'Enter FontAwesome icon classes e.g., fa fa-cogs'}),
+        message += '</form></div></div>';
+
+        BootstrapDialog.show({
+            title:'Edit Menu Item - ' + item.data.text,
+            message: message,
+            type: BootstrapDialog.TYPE_INFO,
+            buttons:[
+            {
+                label: 'Delete Menu Item',
+                cssClass: 'btn-default btn-xs',
+                action: function(dialogRef){
+                    doDelete(dialogRef);
+                }
+            },{
+                label: 'Cancel',
+                cssClass: 'btn-default',
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            },{
+                label: 'Save',
+                cssClass: 'btn-primary',
+                action: function(dialogRef){
+                    var selectName = 'access';
+                    doUpdate( dialogRef, $('#editMenuItemForm').serializeArray());
+                }
+            }
+            ],
+            onshown: function(){
+                $('.chosen-select').chosen({width:'100%'});
+            }
+        });
+    }
+
+    // Store the data for the edited menu item.
+    function doUpdate(dialogRef, data, selectName) {
+        var post = $.post('/menu/update',{
+            data: data,
+            selectname: selectName
+        });
+        post.done(function(result){
+            var response = JSON.parse(result);
+            if(response.message == 'ok'){
+                dialogRef.close();
+                operationOk('The menu item was saved.');
+                location.reload();
+            }
+        });
+        post.fail(function(result){
+            dialogRef.close();
+            BootstrapDialog.alert({
+                type:BootstrapDialog.TYPE_WARNING,
+                message:"Could not update the menu. ERR: " + response.message
+            });
+        });
+        // location.reload();
+    }
+
+    // Delete a menu item
+    function doDelete(dialogRef) {
+        var formData = $('#editMenuItemForm').serializeArray();
+        id = formData[0].value;
+
+        BootstrapDialog.confirm({
+            title:"Confirm",
+            message:"Are you sure you want to delete this menu?",
+            type: BootstrapDialog.TYPE_WARNING,
+            callback: function(result){
+                if(result){
+                    $('#fail-indicator').hide();
+                    $('#success-indicator').hide();
+                    var post = $.post('/menu/delete', {
+                        id: id
+                    });
+                    post.done(function(result){
+                        var response = JSON.parse(result);
+                        if(response.message == 'ok'){
+                            dialogRef.close();
+                            operationOk('The menu item was deleted.');
+                            location.reload();
+
+                        }else{
+                            dialogRef.close();
+                            BootstrapDialog.alert({
+                                type:BootstrapDialog.TYPE_WARNING,
+                                message:"Could not delete the menu. ERR: " + response.message
+                            });
+                        }
+                    });
+                    post.fail(function(){
+                        operationFail('There was a server error.')
+                    });
+                    post.always(function(){});
+                }else{
+                }
+            }
+        });
+    }
+
+    $('.new-menu-item').on('click', function(){
+        var fields = new Bs3form();
+
+        var message = '<div class="container"><div class="col-md-5"><form id="newMenuItemForm" class="form-horizontal">';
+        message += fields.textField({
+            name:'text',
+            label:'Label',
+            required:true,
+            class:'required',
+            placeholder:'Enter the menu item label'}),
+        message += fields.textField({
+            name:'controller',
+            label:'Controller',
+            required:true,
+            class:'required',
+            placeholder:'Enter the controller'}),
+        message += fields.textField({
+            name:'action',
+            label:'Action',
+            required:true,
+            class:'required',
+            placeholder:'Enter the action method'}),
+        message += fields.selectField({
+            name:'access',
+            label:'Access',
+            value: '',
+            options: ['user','manager','administrator'],
+            required:true,
+            class:'required chosen-select',
+            placeholder:'Enter the menu access'}),
+        message += fields.textField({
+            name:'icon',
+            label:'Menu Icon',
+            required:true,
+            class:'required',
+            placeholder:'Enter FontAwesome icon classes e.g., fa fa-cogs'}),
+        message += '</form></div></div>';
+
+        BootstrapDialog.show({
+            title: 'New Menu Item',
+            message: message,
+            type: BootstrapDialog.TYPE_INFO,
+            buttons:[{
+                label: 'Cancel',
+                cssClass: 'btn-default',
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+                },{
+                label: 'Save',
+                cssClass: 'btn-primary',
+                action: function(dialogRef){
+                    var selectName = 'access';
+                    doCreateNewMenuItem(dialogRef, selectName);
+                }
+            }],
+            onshown: function(){
+                $('.chosen-select').chosen({width:'100%'});
+            }
+        });
+    }); // end new menu item
+
+    function doCreateNewMenuItem(dialogRef, selectName) {
+        var data =  $('#newMenuItemForm').serializeArray();
+        var post = $.post('/menu/store', {
+            data: data,
+            selectname: selectName
+        });
+        post.fail(function(){
+            operationFail('There was a server error. New menu was not created.')
+        });
+        post.done(function(result){
+            var response = JSON.parse(result);
+            if(response.message == 'ok'){
+                dialogRef.close();
+                operationOk('The menu item was saved.');
+                location.reload();
+            }
+        })
+    }
+
+function buildTree(){
+    var menuItems = $.getJSON("/menu/get");
+    menuItems.done(function(menuData){
+    tree = $("#treeViewDiv").jstree({
+        "core" : {
+            "data": menuData,
+            "animation" : 0,
+            "check_callback" : true,
+            "themes" : {
+                "theme" : "default-dark",
+                "url" : "/jstree/dist/themes/default-dark/style.min.css",
+                "dots" : true,
+                "icons" : true
+            },
+        },
+        "plugins" : [
+            "dnd",
+            "search",
+            "state",
+            "types",
+            "themes",
+            "changed",
+            "wholerow",
+            "json_data"]
+        });
+
+        // Fired when a tree item is double-clicked -- starts the menu edit process
+    tree.on('dblclick.jstree', function(e,data){
+        var node = $(e.target).closest("li");
+        var id = node[0].id; //id of the double-clicked node
+
+        var post = $.post('/menu/item', {
+            id: id
+        });
+        post.done(function(result) {
+        });
+        post.fail(function(data) { operationFail('Server error - could not load the menus.')});
+        post.then(function(result) {
+            doEditDialog(result);
+        });
+    });
+
+    // Fired when a tree item is moved.
+    tree.on('move_node.jstree', function(e,data){
+        var treeData = {};
+        treeData.id = data.node.id;
+        treeData.parent = data.parent;
+        treeData.position = data.position;
+        var post = $.post('/menu/reorder', {
+            data: treeData
+        });
+        post.done(function(result) {
+        });
+        post.fail(function(data) { operationFail('Server error - could not load the menus.')});
+        post.then(function(result) {
+        });
+    });
+
+  });
+}
+
+$(function() {
+    var tree;
+    buildTree();
+});
+</script>

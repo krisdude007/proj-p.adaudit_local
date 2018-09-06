@@ -1,0 +1,94 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    $('#example').DataTable({
+                //   dom: 'Bfrtip',
+                //    buttons: [
+                //       'pdf',
+                //    ],
+            });        
+     });
+     
+</script>
+
+<style>
+    .odd{
+    background-color: #CCFFCC;
+    }
+    
+    .even{
+    background-color: #ffffff;
+    }
+</style>
+<div class="row">
+    <div class="col-sm-offset-1 col-sm-6">
+        <button onclick="history.go(-1)" class="btn btn-warning">Return to AD(s)</button>
+    </div>
+    <div class="col-sm-2">
+        <a href="/reports/exporttoexcel/filterBy/<?=$this->filterBy; ?>" style="float:right; font-family: arial;" class="btn btn-success">
+            <i class="fa fa-file-text" aria-hidden="true"> <b style="font-family: arial;">Export to Excel</b></i>
+        </a>
+    </div>
+    <div class="col-sm-2"> Filter By: 
+        
+        <a id="filter-actionable" href="/reports/finalreport/filterBy/1" class="btn btn-primary"><i title="Filter By actionable" class="fa fa-eye" aria-hidden="true"></i></a>
+        <a id="filter-inactionable" href="/reports/finalreport/filterBy/0" class="btn btn-primary"><i title="Filter By non-actionable" class="fa fa-eye-slash" aria-hidden="true"></i></a>
+        <a id="remove-filter" href="/reports/finalreport" class="btn btn-primary"><i title="Remove Filter" class="fa fa-globe" aria-hidden="true"></i></a>
+    </div>
+</div>
+    <div class="col-sm-12">
+        <table id="example" class="display table-striped table-bordered" cellspacing="0" style="width: 90%" width="90%">
+            <thead>
+                <tr>
+                    <th>AD Number</th>
+                    <th>Paragraph</th>
+                    <th>If</th>
+                    <th>Options</th>
+                    <th>Do</th>
+                    <th>Limit</th>
+                    <th>From</th>
+                    <th>Or Sequence</th>
+                    <th>Exception</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $curParaId = 0;
+                $curAdId = 0;
+                ?>
+                <?php foreach ($this->reportResult as $result): ?>
+                    <?php $option_txt = !empty($result['option_txt']) ? $result['option_txt'] : '&nbsp;'; ?>
+                    <?php $limit_txt = !empty($result['limit_txt']) ? $result['limit_txt'] : '&nbsp;'; ?>
+                    <?php $from_txt = !empty($result['from_txt']) ? $result['from_txt'] : '&nbsp;'; ?>
+                    <?php $or_txt = !empty($result['or_txt']) ? $result['or_txt'] : '&nbsp;'; ?>
+                        <?php $exception_txt = !empty($result['exception_txt']) ? $result['exception_txt'] : '&nbsp;'; ?>
+                    <tr>
+                        <?php if ($curParaId != $result['ad_paragraph_id'] || $curAdId != $result['ad_id']): ?>
+                            <td style="width:10%" rowspan="<?= $result['option_count']; ?>"><?= $result['ad_txt']; ?></td>
+                        <?php else: ?>
+
+                        <?php endif; ?>
+                        <?php if ($curParaId != $result['ad_paragraph_id'] || $curAdId != $result['ad_id']): ?>
+                            <td rowspan="<?= $result['option_count']; ?>"><?= $result['paragraph_txt']; ?></td>
+                        <?php endif; ?>
+                        <?php if ($curParaId != $result['ad_paragraph_id'] || $curAdId != $result['ad_id']): ?>
+                            <td rowspan="<?= $result['option_count']; ?>"><?= $result['if_txt']; ?></td>
+                        <?php endif; ?>
+                        <td><?= $option_txt; ?></td>
+                        <?php if ($curParaId != $result['ad_paragraph_id'] || $curAdId != $result['ad_id']): ?>
+                            <td rowspan="<?= $result['option_count']; ?>"><?= $result['do_txt']; ?></td>
+                        <?php endif;
+                        $curParaId = $result['ad_paragraph_id'];
+                        $curAdId = $result['ad_id'];
+                        ?>
+
+                        <td><?= $limit_txt; ?></td>
+                        <td><?= $from_txt; ?></td>
+                        <td><?= $or_txt; ?></td>
+                        <td><?= $exception_txt; ?></td>
+                    </tr>
+<?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>

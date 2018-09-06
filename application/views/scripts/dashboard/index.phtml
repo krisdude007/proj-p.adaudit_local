@@ -1,0 +1,17 @@
+<div class="container">
+<p>Dashboard</p>
+    <table class="table table-condensded">
+    <tr>
+        <th>Aircraft</th>
+        <th>Revision Date</th>
+        <th></th>
+    </tr>
+    <?php foreach($this->mpds as $key=>$value): ?>
+        <tr class="text-center">
+            <td><?= $key ?></td>
+            <td><?= $value[0]['revision'] ?></td>
+            <td><a href="mpd/highlights/aircraft/<?=$key?>/revision/<?=$value[0]['revision']?>" class="btn btn-default btn-sm">Highlights</a> <a href="mpd/show/aircraft/<?=$key?>/revision/<?=$value[0]['revision']?>" class="btn btn-default btn-sm">View</a></td>
+        </tr>
+    <?php endforeach; ?>
+    </table>
+</div>

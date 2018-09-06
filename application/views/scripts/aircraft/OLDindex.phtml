@@ -1,0 +1,17 @@
+<div class="container">
+    <?php foreach ($this->allAircraft as $manufacturer => $aircraftList) : ?>
+            <ul class="list-group">
+                <li class="list-group-item">
+                  <h2> <?=$manufacturer?></h2>
+              </li>
+           <?php foreach ($aircraftList as $aircraft): ?>
+                <li class="list-group-item">
+                    <a href="/aircraft/edit/id/<?=$aircraft['aircraft_id']?>"><i class="fa fa-pencil"></i></a>
+                    <?=$aircraft['aircraft_model']?>
+                    TCDS: <?=$aircraft['airframe_tcds']?>
+                    Powerplant <?=$aircraft['engine_model']?> TCDS: <?=$aircraft['engine_tcds']?> - <?=$aircraft['engine_tcds_title']?>
+                </li>
+            <?php endforeach;?>
+            </ul>
+    <?php endforeach;?>
+</div>

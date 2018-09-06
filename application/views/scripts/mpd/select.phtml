@@ -1,0 +1,49 @@
+<div class="container">
+    <table class="mrb" border="1">
+        <thead>
+            <tr>
+                <td rowspan="2">MPD ITEM NUMBER</td>
+                <td rowspan="2">AMM REFERENCE</td>
+                <td rowspan="2">PGM</td>
+                <td rowspan="2">ZONE</td>
+                <td rowspan="2">ACCESS</td>
+                <td colspan="2">INTERVAL</td>
+                <td colspan="2">APPLICABILITY</td>
+                <td rowspan="2">MAN HOURS</td>
+                <td rowspan="2">TASK DESCRIPTION</td>
+            </tr>
+            <tr>
+                <td>THRESHOLD</td>
+                <td>REPEAT</td>
+                <td>APL</td>
+                 <td>ENG</td>
+            </tr>
+        </thead>
+        <tbody>
+    <?php foreach ($this->mpdList as $item) : ?>
+        <?php if($item['change_bar'] == 'D' ) : ?>
+            <tr class="strikethrough">
+        <?php elseif($item['change_bar'] == 'R' ) : ?>
+            <tr class="revised">
+        <?php else: ?>
+            <tr>
+        <?php endif;?>
+            <td width="100"><?php echo $item['mpd_item_number'] ?></td>
+            <td width="50"><?php echo nl2br($item['amm_reference']) ?></td>
+            <td width="50"><?php echo nl2br($item['cat']) ?></td>
+            <td width="100"><?php echo nl2br($item['zone']) ?></td>
+            <td width="100"><?php echo nl2br($item['access']) ?></td>
+            <td width="100"><?php echo nl2br($item['int_threshold']) ?></td>
+            <td width="100"><?php echo nl2br($item['int_repeat']) ?></td>
+            <td width="50"><?php echo nl2br($item['appl_airplane']) ?></td>
+            <td width="50"><?php echo nl2br($item['appl_engine']) ?></td>
+            <td width="50"><?php echo number_format($item['man_hours'],1) ?></td>
+            <td class="text-left" width="400"><?php echo nl2br($item['task_description']) ?></td>  
+        </tr>
+    <?php endforeach; ?>
+        <tr><td colspan="11">End of data</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<?php $this->inlineScript()->appendFile($this->baseUrl('js/mrb/app_mrb.js')) ?>

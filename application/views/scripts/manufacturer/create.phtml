@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2>Add New Manufacturer</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form class="form-horizontal" method="POST" action="/manufacturer/store">
+                <div class="row mt20">
+                    <div class="col-md-12">
+                        <label for="manufacturer_name">Name</label>
+                        <input class="form-control" type="text" id="manufacturer_name" name="manufacturer_name" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="tcds_id">Type</label>
+                        <select class="form-control" name="manufacturer_type" required>
+                            <option value="">Select Type&hellip;</option>
+                            <option value="airframe">Airframe</option>
+                            <option value="powerplant">Powerplant</option>
+                            <option value="propellor">Propellor</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt20">
+                    <div class="col-md-12">
+                        <button class="btn btn-info btn-sm" type="submit">Add New Manufacturer</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

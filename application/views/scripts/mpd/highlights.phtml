@@ -1,0 +1,17 @@
+<div class="container">
+<p class="lead"><?= $this->highlights[0]['aircraft'] ?> MPD Revision Highlights Date <?= $this->highlights[0]['revision'] ?></p>
+    <table class="table table-condensded">
+    <tr>
+        <th>Section</th>
+        <th>Item</th>
+        <th>Description</th>
+    </tr>
+    <?php foreach($this->highlights as $highlight): ?>
+        <tr class="text-left">
+            <td><?= $highlight['section'] ?></td>
+            <td><?= $highlight['item'] ?></td>
+            <td><?= nl2br($highlight['description'])?></td>
+        </tr>
+    <?php endforeach; ?>
+    </table>
+</div>

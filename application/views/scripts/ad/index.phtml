@@ -1,0 +1,776 @@
+<div class="container">
+<!--    <p class="lead"><i class="fa fa-plane"></i> AD Audit</p>
+    <p>This application is the AD Audit Tool.<br>
+    It provides such information on airworthiness directives.</p>-->
+</div>
+<style>
+    .ui-front{z-index: 5000;}
+
+    .container a i.fa {
+        color: #2aabd2;
+    }
+
+    #grey-scale{
+        color: #587272;
+        font-size: 80%;
+    }
+</style>
+<div class="container">    
+    <div id="toolbar">
+        <button class="btn btn-primary new-ad">New Airworthiness Directive</button>
+    </div>
+    <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%"
+           data-toolbar="#toolbar"
+           data-search="true"
+           data-show-refresh="true"
+           data-show-toggle="true"
+           data-show-columns="true"
+           data-show-export="true"
+           data-show-pagination-switch="true"
+           data-pagination="true"
+           data-id-field="id"
+           data-page-list="[10, 25, 50, 100, ALL]"
+           data-show-footer="false"
+           data-cookie="true"
+           data-cookie-id-table="adViewTable"
+           >
+    </table>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#table').bootstrapTable({
+            url: '/api/getadsbyfleetids',
+            type: 'POST',
+            columns: [{
+                    field: 'ad_txt',
+                    title: 'Name',
+                    sortable: 'true',
+                    width: '10',
+                    formatter: nameFormatter
+                }, {
+                    field: 'ad_desc',
+                    title: 'Description',
+                    sortable: 'true',
+                    width: '10',
+                    formatter: toggleFormatter
+                }, {
+                    field: 'fleet_txt',
+                    title: 'Fleet',
+                    sortable: 'true',
+                    width: '10',
+                    formatter: toggleFormatter
+                }, {
+                    field: 'ad_status_txt',
+                    title: 'Status',
+                    sortable: 'true',
+                    editable: 'true',
+                    width: '10',
+                    formatter: toggleFormatter
+                }, {
+                    field: 'tools',
+                    title: 'Action',
+                    align: 'center',
+                    width: '80',
+                    events: toolEvent,
+                    formatter: toolFormatter
+                }],
+            exportDataType: 'all',
+        });
+    });
+    function intFormatter(value, row, index)
+    {
+        if (value == null) {
+            return value
+        } else {
+            return nl2br(value);
+        }
+    }
+
+    function operationOk(message) {
+        $('#success-indicator>div.alert').text(message);
+        $('#success-indicator').slideDown().delay(3000).slideUp();
+    }
+
+    function nameFormatter(value, row, index) {
+        if (row.is_active === '0') {
+            return ['<i style="color: red;">' + row.ad_txt + '</i>', ].join('');
+        } else if (row.is_superceding === '1') {
+            return [
+                '<a class="view" href="/ad/view/id/' + row.ad_id + '" title="View this row ' + row.ad_id + '">',
+                '<i style="color: green;">' + row.ad_txt + '</i>',
+                '</a>'
+            ].join('');
+        } else {
+            return [
+                '<a class="view" href="/ad/view/id/' + row.ad_id + '" title="View this row ' + row.ad_id + '">',
+                row.ad_txt,
+                '</a>'
+            ].join('');
+        }
+    }
+    
+    function toggleFormatter(value, row, index) {
+        var str = value;
+        if (row.is_active === '0') {
+                str = '<i style="color: red;">'+value+'</i>';
+        } else if (row.is_superceding === '1') {
+                str = '<i style="color: green;">'+value+'</i>';
+        } else {
+            //return value;
+        }
+        return str;
+    }
+
+    function toolFormatter(value, row, index)
+    {
+        if (row.is_active === '0') {
+            return [
+                '<i class="fa fa-pencil" id="grey-scale"></i>',
+                '&nbsp;',
+                '<a class="delete" href="javascript:void(0)" title="Delete row id ' + row.ad_id + '">',
+                '<i class="fa fa-trash"></i>',
+                '</a>',
+                '&nbsp;',
+                '<a class="re-activate" href="javascript:void(0)" title="Reactivate row id ' + row.ad_id + '">',
+                '<i class="fa fa-check"></i>',
+                '</a>',
+                '&nbsp;',
+                '<i class="fa fa-wifi" id="grey-scale"></i>',
+            ].join('');
+        } else {
+            return [
+                '<a class="edit" href="javascript:void(0)" title="Edit this row ' + row.ad_id + '">',
+                '<i class="fa fa-pencil"></i>',
+                '</a>',
+                '&nbsp;',
+                '<a class="paragraph" href="/paragraph/index/id/' + row.ad_id + '" title="Paragraph ' + row.ad_id + '">',
+                '<i class="fa fa-file-text"></i>',
+                '</a>',
+                '&nbsp;',
+                '<a class="delete" href="javascript:void(0)" title="Delete row id ' + row.ad_id + '">',
+                '<i class="fa fa-trash"></i>',
+                '</a>',
+//        '&nbsp;',
+//        '<a class="un-link" href="javascript:void(0)" title="Unlink row id '+row.ad_id+'">',
+//        '<i class="fa fa-times-circle"></i>',
+//        '</a>',
+                '&nbsp;',
+                '<a class="in-active" href="javascript:void(0)" title="Inactivate row id ' + row.ad_id + '">',
+                '<i class="fa fa-ban"></i>',
+                '</a>',
+                '&nbsp;',
+                '<a class="super-cede" href="javascript:void(0)" title="Supercede row id ' + row.ad_id + '">',
+                '<i class="fa fa-wifi"></i>',
+                '</a>',
+            ].join('');
+        }
+    }
+
+    function sortFormatter(value, row, index)
+    {
+        return value.split(',').sort();
+    }
+    window.toolEvent = {
+        'click .edit': function (e, value, row, index) {
+
+            var post = $.post('/ad/item', {
+                id: row.ad_id
+            });
+            post.done(function (result) {
+            });
+            post.fail(function (result) {
+                operationFail('Server error - could not load the menus.')
+            });
+            post.then(function (result) {
+                doEditDialog(result);
+            });
+        },
+        'click .delete': function (e, value, row, index) {
+            BootstrapDialog.confirm({
+                title: "Confirm",
+                message: "Are you sure you want to delete this AD?",
+                type: BootstrapDialog.TYPE_WARNING,
+                callback: function (result) {
+                    if (result) {
+                        doDelete(row.ad_id);
+                    } else {
+                    }
+                }
+            });
+        },
+        'click .un-link': function (e, value, row, index) {
+            BootstrapDialog.confirm({
+                title: "Confirm",
+                message: "Are you sure you want to unlink this AD for this customer?",
+                type: BootstrapDialog.TYPE_WARNING,
+                callback: function (result) {
+                    if (result) {
+                        doUnlink(row.ad_id);
+                    } else {
+                    }
+                }
+            });
+        },
+        'click .re-activate': function (e, value, row, index) {
+            BootstrapDialog.confirm({
+                title: "Confirm",
+                message: "Are you sure you want to reactivate this AD?",
+                type: BootstrapDialog.TYPE_WARNING,
+                callback: function (result) {
+                    if (result) {
+                        doReactivate(row.ad_id);
+                    } else {
+                    }
+                }
+            });
+        },
+        'click .in-active': function (e, value, row, index, inactivateComment) {
+
+            var fields = new Bs3form();
+            var Id = row.ad_id;
+
+            var message = '<div class="col-md-12"><form id="inactivateCommentForm" class="form-horizontal">';
+            message += fields.hiddenField({
+                id: 'id',
+                name: 'id',
+                value: Id
+            }),
+                    message += fields.textareaField({
+                        id: 'inactivateComment',
+                        name: 'inactivateComment',
+                        label: 'Please enter the reason for inactivation.',
+                        value: inactivateComment,
+                        required: true,
+                        class: 'required',
+                        placeholder: 'Enter your reason here.'
+                    }),
+                    message += '</form></div>';
+
+            BootstrapDialog.show({
+                title: 'Inactivate AD',
+                message: message,
+                type: BootstrapDialog.TYPE_INFO,
+                buttons: [
+                    {
+                        label: 'Cancel',
+                        cssClass: 'btn-default',
+                        action: function (dialogRef) {
+                            dialogRef.close();
+                        }
+                    }, {
+                        label: 'Inactivate',
+                        cssClass: 'btn-primary',
+                        action: function (dialogRef, e, value, row, index, inactivateComment) {
+                            BootstrapDialog.confirm({
+                                title: "Confirm",
+                                message: "Are you sure you want to inactivate this AD?",
+                                type: BootstrapDialog.TYPE_WARNING,
+                                callback: function (result) {
+                                    if (result) {
+                                        doInactivate(dialogRef, $('#inactivateCommentForm').serializeArray());
+                                    } else {
+                                    }
+                                }
+                            });
+                        }
+                    }
+                ],
+            });
+        },
+        'click .super-cede': function (e, value, row, index) {
+            //console.log(data);
+            var fields = new Bs3form();
+            var Id = row.fleet_id;
+
+            console.log(row);
+            var message = '<div class="col-md-12"><form id="superCedeRecordForm" class="form-horizontal">';
+            message += fields.hiddenField({
+                id: 'ad_id',
+                name: 'ad_id',
+                value: row.ad_id
+            }),
+                    message += fields.selectField({
+                        id: 'supercededAds',
+                        name: 'supercededAds',
+                        label: 'Superceded AD(s)',
+                        class: 'chosen-select',
+                        multiple: true,
+                        options: doAjax('get', '/api/getselectoptions/', {
+                            options: {
+                                dbTable: 'Application_Model_DbTable_Ad',
+                                method: 'getAdLookupByFleet',
+                                params: {id: Id}
+                            }
+                        }).data,
+                        value: row.superceded_ad_id,
+                    }),
+                    message += '</form></div>';
+
+            BootstrapDialog.show({
+                title: "SuperCeding AD",
+                message: message,
+                type: BootstrapDialog.TYPE_INFO,
+                buttons: [
+                    {
+                        label: 'Cancel',
+                        cssClass: 'btn-default',
+                        action: function (dialogRef) {
+                            dialogRef.close();
+                        }
+                    }, {
+                        label: 'Superceded',
+                        cssClass: 'btn-primary',
+                        action: function (dialogRef) {
+                            doSuperCede(dialogRef, $('#superCedeRecordForm').serializeArray());
+                        }
+                    }
+                ],
+                onshown: function () {
+                    $('.chosen-select').chosen({width: '100%'});
+                    $('#applicability').on('change', function () {
+                        $("#applicability").html(selectx);
+                        $("#applicability").trigger("chosen:updated");
+                    });
+                }
+            });
+        }
+    }
+
+    function doEditDialog(data) {
+        //console.log(data);
+        var fields = new Bs3form();
+        item = JSON.parse(data);
+
+        console.log(item.data);
+        var message = '<div class="col-md-12"><form id="editRecordForm" class="form-horizontal">';
+        message += fields.hiddenField({
+            id: 'ad_id',
+            name: 'ad_id',
+            value: item.data.ad_id
+        }),
+                message += fields.textField({
+                    name: 'ad_txt',
+                    label: 'Name',
+                    value: item.data.ad_txt,
+                    required: true,
+                    class: 'required',
+                    placeholder: 'Enter the New AD'
+                }),
+                message += fields.textareaField({
+                    name: 'ad_desc',
+                    label: 'Description',
+                    required: true,
+                    value: item.data.ad_desc,
+                    class: 'required',
+                    rows: '4',
+                    placeholder: 'Enter the AD Description'
+                }),
+                message += fields.dateField({
+                    id: 'effective_date',
+                    name: 'effective_date',
+                    label: 'Effective Date',
+                    required: true,
+                    value: item.data.effective_date,
+                    class: 'required datetimepicker',
+                    placeholder: 'Enter the Effective Date'
+                }),
+                message += fields.selectField({
+                    id: 'affectedAds',
+                    name: 'affectedAds',
+                    label: 'Affected AD(s)',
+                    class: 'chosen-select',
+                    multiple: true,
+                    options: doAjax('get', '/api/getselectoptions/', {
+                        options: {
+                            dbTable: 'Application_Model_DbTable_Ad',
+                            method: 'getAdOptions'
+                                    //params:{id: Id}
+                        }
+                    }).data,
+                    value: item.data.affected_ad,
+                }),
+                message += fields.textareaField({
+                    id: 'reference_txt',
+                    name: 'reference_txt',
+                    label: 'References',
+                    required: true,
+                    value: item.data.reference_txt,
+                    //class:'required',
+                    rows: '4',
+                    placeholder: 'Enter the references'
+                }),
+                message += fields.selectField({
+                    id: 'ata_id',
+                    name: 'ata_id',
+                    label: 'ATA',
+                    class: 'chosen-select required',
+                    options: doAjax('post', '/api/getselectoptions/', {
+                        options: {
+                            dbTable: 'Application_Model_DbTable_Ata',
+                            method: 'getAta',
+                        }
+                    }).data,
+                    value: item.data.ata_id,
+                    required: true,
+                    placeholder: 'Select the ATA'
+                }),
+                message += fields.selectField({
+                    id: 'ad_status_id',
+                    name: 'ad_status_id',
+                    label: 'Status',
+                    class: 'chosen-select required',
+                    options: doAjax('post', '/api/getselectoptions/', {
+                        options: {
+                            dbTable: 'Application_Model_DbTable_AdStatus',
+                            method: 'getAdStatus',
+                        }
+                    }).data,
+                    value: item.data.ad_status_id,
+                    required: true,
+                    placeholder: 'Enter the Status'
+                }),
+                message += fields.selectField({
+                    id: 'applicability',
+                    name: 'applicability',
+                    label: 'Applicable Fleet(s)',
+                    class: 'chosen-select',
+                    multiple: true,
+                    options: doAjax('get', '/api/getselectoptions/', {
+                        options: {
+                            dbTable: 'Application_Model_DbTable_Fleet',
+                            method: 'getFleets',
+                            params: {id: item.data.ad_id, fleet_id: item.data.fleet_id}
+                        }
+                    }).data,
+                    value: item.data.fleet_id,
+                }),
+                message += '</form></div>';
+
+        BootstrapDialog.show({
+            title: 'Edit AD - ' + item.data.ad_txt,
+            message: message,
+            type: BootstrapDialog.TYPE_INFO,
+            buttons: [
+                {
+                    label: 'Cancel',
+                    cssClass: 'btn-default',
+                    action: function (dialogRef) {
+                        dialogRef.close();
+                    }
+                }, {
+                    label: 'Save',
+                    cssClass: 'btn-primary',
+                    action: function (dialogRef) {
+                        doUpdate(dialogRef, $('#editRecordForm').serializeArray());
+                    }
+                }
+            ],
+            onshown: function () {
+                $('.chosen-select').chosen({width: '100%'});
+                $('#ad_status_phase2').on('change', function () {
+                    var ad_id = $(this).val();
+                    var selectx = fields.selectField({
+                        id: 'ad_status_phase2',
+                        name: 'ad_status_phase2',
+                        label: 'Status',
+                        class: 'chosen-select required',
+                        options: doAjax('post', '/ad/edit/', {
+                            options: {
+                                dbTable: 'Application_Model_DbTable_AdStatus',
+                                method: 'getAdStatus',
+                                params: ad_id
+                            }
+                        }).data,
+                        required: true,
+                        placeholder: 'Select AD status'})
+                    $("#applicability").html(selectx);
+                    $("#applicability").trigger("chosen:updated");
+                });
+//
+//                // BOOTSTRAP 3 - DateTimePicker - ref. http://eonasdan.github.io/bootstrap-datetimepicker/
+                $('.datetimepicker').datetimepicker({
+                    format: 'YYYY-MM-DD'
+                });
+            }
+        });
+    }
+
+    $('.new-ad').on('click', function () {
+        var fields = new Bs3form();
+
+        //console.log(item.data);
+        var message = '<div class="col-md-12"><form id="createForm" class="form-horizontal">';
+        message += fields.textField({
+            id: 'ad_txt',
+            name: 'ad_txt',
+            label: 'Name',
+            required: true,
+            class: 'required',
+            placeholder: 'Enter the AD Name'
+        }),
+                message += fields.textareaField({
+                    name: 'ad_desc',
+                    label: 'Description',
+                    required: true,
+                    class: 'required',
+                    rows: '4',
+                    placeholder: 'Enter the AD Description'
+                }),
+                message += fields.dateField({
+                    id: 'effective_date',
+                    name: 'effective_date',
+                    label: 'Effective Date',
+                    required: true,
+                    //value:item.data.effective_date,
+                    class: 'required datetimepicker',
+                    placeholder: 'Enter the Effective Date'
+                }),
+                message += fields.selectField({
+                    id: 'affectedAds',
+                    name: 'affectedAds',
+                    label: 'Affected AD(s)',
+                    class: 'chosen-select',
+                    multiple: true,
+                    options: doAjax('get', '/api/getselectoptions/', {
+                        options: {
+                            dbTable: 'Application_Model_DbTable_Ad',
+                            method: 'getAdOptions'
+                                    //params:{id: Id}
+                        }
+                    }).data,
+                    //value:item.data.affected_ad,
+                }),
+                message += fields.textareaField({
+                    id: 'reference_txt',
+                    name: 'reference_txt',
+                    label: 'References',
+                    required: true,
+                    //value:item.data.reference_txt,
+                    //class:'required',
+                    rows: '4',
+                    placeholder: 'Enter the references'
+                }),
+                message += fields.selectField({
+                    id: 'ata_id',
+                    name: 'ata_id',
+                    label: 'ATA',
+                    class: 'chosen-select required',
+                    options: doAjax('post', '/api/getselectoptions/', {
+                        options: {
+                            dbTable: 'Application_Model_DbTable_Ata',
+                            method: 'getAta',
+                        }
+                    }).data,
+                    //value:item.data.ata_id,
+                    required: true,
+                    placeholder: 'Select the ATA'
+                }),
+                message += fields.selectField({
+                    id: 'ad_status_id',
+                    name: 'ad_status_id',
+                    label: 'Status',
+                    class: 'chosen-select required',
+                    options: doAjax('post', '/api/getselectoptions/', {
+                        options: {
+                            dbTable: 'Application_Model_DbTable_AdStatus',
+                            method: 'getAdStatus',
+                        }
+                    }).data,
+                    //value:item.data.ad_status_id,
+                    required: true,
+                    placeholder: 'Enter the Status'
+                }),
+                message += fields.selectField({
+                    id: 'applicability',
+                    name: 'applicability',
+                    label: 'Applicable Fleet(s)',
+                    class: 'chosen-select',
+                    multiple: true,
+                    options: doAjax('get', '/api/getselectoptions/', {
+                        options: {
+                            dbTable: 'Application_Model_DbTable_Fleet',
+                            method: 'getFleets',
+                            //params: item.data.ad_id
+                        }
+                    }).data,
+                    //value:item.data.fleet_id
+                    required: true,
+                    placeholder: 'Enter the Applicability'
+                }),
+                message += '</form></div>';
+
+        BootstrapDialog.show({
+            title: 'Add new AirWorthiness Directive',
+            message: message,
+            type: BootstrapDialog.TYPE_INFO,
+            buttons: [
+                {
+                    label: 'Cancel',
+                    cssClass: 'btn-default',
+                    action: function (dialogRef) {
+                        dialogRef.close();
+                    }
+                }, {
+                    label: 'Save',
+                    cssClass: 'btn-primary',
+                    action: function (dialogRef) {
+                        var response = doAjax('post', '/ad/create', {data: $('#createForm').serializeArray()});
+                        dialogRef.close();
+                        if (response.message === 'ok') {
+                            BootstrapDialog.alert({
+                                title: 'Success',
+                                message: 'The AD was added successfully.',
+                                type: BootstrapDialog.TYPE_SUCCESS
+                            });
+                            $('#table').bootstrapTable('refresh');
+                        } else {
+                            BootstrapDialog.alert({title: 'Error', message: 'There was an error creating the AD. ERR ' + response.text, type: BootstrapDialog.TYPE_WARNING});
+                        }
+                    }
+                }
+            ],
+            onshown: function () {
+                $('.chosen-select').chosen({width: '100%'});
+                $('#ad_status_phase2').on('change', function () {
+                    var ad_id = $(this).val();
+                    var selectx = fields.selectField({
+                        id: 'ad_status_phase2',
+                        name: 'ad_status_phase2',
+                        label: 'Status',
+                        class: 'chosen-select required',
+                        options: doAjax('post', '/api/getselectoptions/', {
+                            options: {
+                                dbTable: 'Application_Model_DbTable_AdCustomer',
+                                method: 'getStatusOptions',
+                                params: item.data.ad_id
+                            }
+                        }).data,
+                        required: true,
+                        placeholder: 'Enter the Status Change'})
+                    $("#ad_id").html(selectx);
+                    $("#ad_id").trigger("chosen:updated");
+                });
+
+                // BOOTSTRAP 3 - DateTimePicker - ref. http://eonasdan.github.io/bootstrap-datetimepicker/
+                $('.datetimepicker').datetimepicker({
+                    format: 'YYYY-MM-DD'
+                });
+            }
+        });
+
+        // });
+    });
+
+
+// Store the data for the edited menu item.
+    function doUpdate(dialogRef, data) {
+        var post = $.post('/ad/update', {
+            data: data,
+        });
+        post.done(function (result) {
+            var response = JSON.parse(result);
+            if (response.message == 'ok') {
+                dialogRef.close();
+                operationOk('The AD item was saved.');
+                location.reload();
+            }
+        });
+        post.fail(function (result) {
+            dialogRef.close();
+            BootstrapDialog.alert({
+                type: BootstrapDialog.TYPE_WARNING,
+                message: "Could not update the AD. ERR: " + response.message
+            });
+        });
+        // location.reload();
+    }
+
+    function doDelete(rowID) {
+        var url = "/ad/delete";
+        var result = doAjax('post', url, {id: rowID});
+        if (result.message === 'ok') {
+            BootstrapDialog.alert({
+                title: 'Success',
+                message: 'The AD was deleted.',
+                type: BootstrapDialog.TYPE_SUCCESS
+            });
+            $('#table').bootstrapTable('refresh');
+        } else {
+            doError('There was an error deleting the AD.');
+        }
+    }
+
+//    function doUnlink(rowID){
+//        var url = "/ad/unlink";
+//        var result = doAjax('post', url, {id: rowID});
+//        if(result.message === 'ok'){
+//            BootstrapDialog.alert({
+//                title:'Success', 
+//                message:'The AD was un-linked from this customer.',
+//                type:BootstrapDialog.TYPE_SUCCESS
+//            });
+//          $('#table').bootstrapTable('refresh');
+//        }else{
+//            doError('There was an error un-linking the AD.');
+//        }
+//    }
+
+
+    function doInactivate(dialogRef, data) {
+        var url = "/ad/inactivate";
+        var result = doAjax('post', url, {data: data});
+        if (result.message === 'ok') {
+            dialogRef.close();
+            BootstrapDialog.alert({
+                title: 'Success',
+                message: 'The AD was made inactive.',
+                type: BootstrapDialog.TYPE_SUCCESS
+            });
+            $('#table').bootstrapTable('refresh');
+        } else {
+            doError('There was an error in-activating the AD.');
+        }
+    }
+
+    function doSuperCede(dialogRef, data) {
+        var url = "/ad/supercede";
+        var result = doAjax('post', url, {data: data});
+        if (result.message === 'ok') {
+            dialogRef.close();
+            BootstrapDialog.alert({
+                title: 'Success',
+                message: 'The AD is now a superceding AD.',
+                type: BootstrapDialog.TYPE_SUCCESS
+            });
+            $('#table').bootstrapTable('refresh');
+        } else {
+            doError('There was an error superceding the AD.');
+        }
+    }
+
+    function doReactivate(rowID) {
+        var url = "/ad/reactivate";
+        var result = doAjax('post', url, {id: rowID});
+        if (result.message === 'ok') {
+            BootstrapDialog.alert({
+                title: 'Success',
+                message: 'The AD is now active.',
+                type: BootstrapDialog.TYPE_SUCCESS
+            });
+            $('#table').bootstrapTable('refresh');
+        } else {
+            doError('There was an error reactivating the AD.');
+        }
+    }
+
+    function doError(message) {
+        BootstrapDialog.alert({
+            title: 'Error',
+            message: message,
+            type: BootstrapDialog.TYPE_DANGER
+        });
+    }
+</script>

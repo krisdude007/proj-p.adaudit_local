@@ -1,0 +1,42 @@
+<div class="row">
+    <header>
+        <div class="col-sm-12 col-md-12">
+            <img src='/images/layout/cavok-logo.png'>
+        </div>
+    </header>
+</div>
+<nav class="navbar navbar-default navbar-static-top <?= APPLICATION_ENV; ?>">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><i class="<?= $this->app_icon?>"></i> <?= $this->app_name?></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <?php 
+          // Application specific menu
+          $menuTable = new Application_Model_DbTable_Menu(); 
+          echo $menuTable->get($this->menu, $this->role['application_role_nm']);
+       ?>
+      <ul class="nav navbar-nav navbar-right">
+        <?php 
+          require_once 'Cavok/MenuNotification.php';
+          require_once 'Cavok/MenuUser.php';
+          require_once 'Cavok/MenuSystem.php';
+          $notificationMenu = new Cavok_Menu_Notification();
+          $userMenu = new Cavok_Menu_User();
+          $systemMenu = new Cavok_Menu_System();
+          // echo $notificationMenu->get($this->user['user_id']); 
+          // echo $userMenu->get($this->user['user_id']); 
+          echo $systemMenu->get($this->user['user_id']); 
+        ?>
+
+        <li><a href="<?= $this->LogInOutURL; ?>"> <?= ($this->user ? '<i class="fa fa-sign-out"></i>' : 'Login'); ?></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

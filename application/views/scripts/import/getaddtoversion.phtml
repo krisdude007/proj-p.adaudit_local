@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Add Document to Version</h2>
+            <section>
+                <p><strong>Document:</strong> <?= $this->document['document']['name'] ?></p>
+                <p><strong>Revision number:</strong> <?= $this->document['version']['revision_num'] ?></p>
+                <p><strong>Revision date:</strong> <?= $this->document['version']['revision_dt'] ?></p>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="/import/postversion">
+                <input type="hidden" name="document_id" value="<?=$this->document['document']['id']?>">
+                <input type="hidden" name="version_id" value="<?=$this->document['version']['id']?>">
+
+                <div class="row mt20">
+                    <div class="col-md-8">
+                        <label for="importfile">Source Document</label>
+                        <input class="form-control" type="file" name="importfile" required>
+                    </div>
+                </div>
+                <div class="row mt20">
+                    <div class="col-md-8">
+                        <label for="comment">Comment</label>
+                        <textarea name="comment" class="form-control" id="comment" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="row mt20">
+                        <button class="btn btn-primary btn-sm" type="submit">Add Document</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

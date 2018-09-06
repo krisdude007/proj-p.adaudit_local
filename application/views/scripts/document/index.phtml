@@ -1,0 +1,429 @@
+<div class="container">
+<button class="btn btn-primary btn-sm new-document">New Document</button>
+<?php foreach($this->documents as $document):?>
+    <section class="outlined-box">
+    <?php //var_dump($document) ?>
+        <p>
+            <strong><?= $document['document']['name'] ?></strong>
+            <span class="pull-right">
+                    <a href="/versions/add/id/<?=$document['document']['id']?>" data-did="<?=$document['document']['id']?>" title="Add new version"><i class="fa fa-plus"></i></a>
+                    <a href="#" data-did="<?=$document['document']['id']?>" class="edit-document" title="Edit document"><i class="fa fa-pencil"></i></a>
+            </span>
+        </p>
+    <?php foreach($document['versions'] as $version):?>
+        <article>Version <?= $version['revision_num'] . ' Date ' . $version['revision_dt'] ?>
+            <span class="pull-right">
+                <a href="/versions/view/id/<?=$document['document']['id']?>/vid/<?=$version['id']?>" class="view-document" title="View document"><i class="fa fa-book"></i></a>
+                <a href="/import/getaddtoversion/id/<?=$document['document']['id']?>/vid/<?=$version['id']?>" title="Add document to version"><i class="fa fa-plus"></i></a>
+
+                <!-- <a href="/versions/add/id/<?=$document['document']['id']?>" data-did="<?=$document['document']['id']?>" data-vid="<?=$version['id']?>" title="Add document to version"><i class="fa fa-plus"></i></a> -->
+                <a href="#" data-did="<?=$document['document']['id']?>" data-vid="<?=$version['id']?>" class="edit-version"><i class="fa fa-pencil" title="Edit version"></i></a>
+                </span>
+        </article>
+    <?php endforeach; ?>
+    </section>
+<?php endforeach; ?>
+</div>
+
+<script>
+$('.new-document').on('click', function(){
+        var fields = new Bs3form();
+        var message = '<div class="container"><div class="col-md-5"><form id="editDocumentForm" class="form-horizontal">';
+        message += fields.selectField({
+            id:'document_type_id',
+            name:'document_type_id',
+            label:'Document Type',
+            class:'chosen-select required',
+            options: doAjax('post', '/api/getselectoptions/',{
+                options:{
+                    dbTable:'Application_Model_DbTable_Documenttype',
+                    method:'getAll',
+                    params: null
+                }
+            }).data,
+            value:document.manufacturer_id,
+            required:true,
+            placeholder:'Enter the Manufacturer Name'}),
+        message += fields.selectField({
+            id:'manufacturer_id',
+            name:'manufacturer_id',
+            label:'Manufacturer',
+            class:'chosen-select required',
+            options: doAjax('post', '/api/getselectoptions/',{
+                options:{
+                    dbTable:'Application_Model_DbTable_Manufacturer',
+                    method:'getManufacturerOptions',
+                    params:'aircraft'
+                }
+            }).data,
+            value:document.manufacturer_id,
+            required:true,
+            placeholder:'Enter the Manufacturer Name'}),
+        message += fields.selectField({
+            id:'aircraft_id',
+            name:'aircraft_model_id',
+            label:'Aircraft',
+            class:'chosen-select required',
+            options: doAjax('post', '/api/getselectoptions/',{
+                options:{
+                    dbTable:'Application_Model_DbTable_Aircraft',
+                    method:'getAicraftSelect'
+                }
+            }).data,
+            value:document.manufacturer_id,
+            required:true,
+            placeholder:'Enter the aircraft model'}),
+        message += fields.textField({
+            id:'name',
+            name:'name',
+            label:'Document name',
+            class:' required',
+            required:true,
+            placeholder:'Enter the document name'}),
+        message += '</form></div></div>';
+        BootstrapDialog.show({
+            title:'New document',
+            message: message,
+            type: BootstrapDialog.TYPE_INFO,
+            buttons:[{
+                label: 'Cancel',
+                cssClass: 'btn-default',
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            },{
+                label: 'Save',
+                cssClass: 'btn-primary',
+                action: function(dialogRef){
+                    var response = doAjax('post','/document/store',{'data':$('#editDocumentForm').serializeArray() });
+                    dialogRef.close();
+                    if(response.message == 'ok'){
+                        location.reload();
+                    }else{
+                         BootstrapDialog.alert({title:'Error', message:'There was an error creating the document. ERR '+response.text, type: BootstrapDialog.TYPE_WARNING});
+                    }
+                }
+            }],
+            onshown: function(){
+                $('.chosen-select').chosen({width:'100%'});  
+                $('#manufacturer_id').on('change', function() {
+                    var manufacturer_id = $(this).val();
+                    var selectx = fields.selectField({
+                            id:'applicability',
+                            name:'applicability',
+                            label:'Applicability',
+                            class:'chosen-select required',
+                            options: doAjax('post', '/api/getselectoptions/',{
+                                options:{
+                                    dbTable:'Application_Model_DbTable_Aircraft',
+                                    method:'getAicraftSelectByManufacturer',
+                                    params: manufacturer_id
+                                }
+                            }).data,
+                            required:true,
+                            placeholder:'Enter the Manufacturer Name'})
+                        $("#aircraft_id").html(selectx);
+                    $("#aircraft_id").trigger("chosen:updated");
+                });
+
+                // BOOTSTRAP 3 - DateTimePicker - ref. http://eonasdan.github.io/bootstrap-datetimepicker/
+                $('.datetimepicker').datetimepicker({
+                    format: 'YYYY-MM-DD'
+                });
+            }
+        });
+});
+//href="/versions/edit/id/<?=$document['document']['id']?>/vid/<?=$version['id']?>"
+    $('.edit-version').on('click', function(){
+        var did = $(this).data('did');
+        var vid = $(this).data('vid');
+        var document = doAjax('get','/api/getdocumentversion',{vid:vid}).data;
+
+        var fields = new Bs3form();
+        var message = '<div class="container"><div class="col-md-5"><form id="editDocumentVersionForm" class="form-horizontal">';
+        message += fields.textField({
+            name:'revision_num',
+            label:'Revision Number',
+            value:document.revision_num,
+            required:false,
+            placeholder:'Enter the revision number.'}),
+        message += fields.textField({
+            name:'revision_dt',
+            label:'Revision Date',
+            class: 'datetimepicker',
+            value:document.revision_dt,
+            required:false,
+            placeholder:'Enter the revision date.'}),
+        message += fields.textField({
+            name:'comment',
+            label:'Comment',
+            value:document.comment,
+            required:false,
+            placeholder:'Enter comment.'}),
+        message += '</form></div></div>';
+              
+        BootstrapDialog.show({
+            title:'Edit this version',
+            message: message,
+            type: BootstrapDialog.TYPE_INFO,
+            buttons:[
+            {
+                label: 'Delete Version',
+                cssClass: 'btn-default btn-xs',
+                action: function(dialogRef){
+                    BootstrapDialog.confirm({
+                        title:"Confirm",
+                        message:"Are you sure you want to delete this document?",
+                        type: BootstrapDialog.TYPE_DANGER,
+                        callback: function(result){
+                            if(result){
+                                var response = doAjax('post','/versions/delete',{'did':did, 'vid':vid});
+                                dialogRef.close();
+                                if(response.message == 'ok'){
+                                    location.reload();
+                                }else{
+                                     BootstrapDialog.alert({title:'Error', message:'There was an error deleting the document. ERR '+response.text, type: BootstrapDialog.TYPE_WARNING});
+                                }
+                            }else{
+                            }
+                        }
+                    });
+                }
+            },{
+                label: 'Cancel',
+                cssClass: 'btn-default',
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            },{
+                label: 'Save',
+                cssClass: 'btn-primary',
+                action: function(dialogRef){
+                    var response = doAjax('post','/versions/update',{'vid':vid, data:$('#editDocumentVersionForm').serializeArray()});
+                    dialogRef.close();
+                   if(response.message == 'ok'){
+                        location.reload();
+                    }else{
+                         BootstrapDialog.alert({title:'Error', message:'There was an error deleting the document. ERR '+response.text, type: BootstrapDialog.TYPE_WARNING});
+                    }
+                }
+            }
+            ],
+            onshown: function(){
+                $('.chosen-select').chosen({width:'100%'});  
+                $('#manufacturer_id').on('change', function() {
+                    var manufacturer_id = $(this).val();
+                    var selectx = fields.selectField({
+                            id:'applicability',
+                            name:'applicability',
+                            label:'Applicability',
+                            class:'chosen-select required',
+                            options: doAjax('post', '/api/getselectoptions/',{
+                                options:{
+                                    dbTable:'Application_Model_DbTable_Aircraft',
+                                    method:'getAicraftSelectByManufacturer',
+                                    params: manufacturer_id
+                                }
+                            }).data,
+                            required:true,
+                            placeholder:'Enter the Manufacturer Name'})
+                        $("#aircraft_id").html(selectx);
+                    $("#aircraft_id").trigger("chosen:updated");
+                });
+
+                // BOOTSTRAP 3 - DateTimePicker - ref. http://eonasdan.github.io/bootstrap-datetimepicker/
+                $('.datetimepicker').datetimepicker({
+                    format: 'YYYY-MM-DD'
+                });
+            }
+        });
+    });
+//href="/import/getaddtoversion/id/<?=$document['document']['id']?>/vid/<?=$version['id']?>"
+
+    $('.add-to-version').on('click', function(){
+        var did = $(this).data('did');
+        var vid = $(this).data('vid');
+        // console.log(did, vid);
+                BootstrapDialog.show({
+            title:'Add new version',
+            message: 'Hello',
+            type: BootstrapDialog.TYPE_INFO,
+            buttons:[
+                {
+                label: 'Cancel',
+                cssClass: 'btn-default',
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            },{
+                label: 'Save',
+                cssClass: 'btn-primary',
+                action: function(dialogRef){
+                    var selectName = 'access';
+                    doUpdate( dialogRef, $('#editMenuItemForm').serializeArray(), selectName);
+                }
+            }
+            ],
+            onshown: function(){
+                $('.chosen-select').chosen({width:'100%'});
+            }
+        });
+    });
+// href="/versions/add/id/<?=$document['document']['id']?>"
+   $('.add-new-version-to-document').on('click', function(){
+        var did = $(this).data('did');
+        var vid = $(this).data('vid');
+        // console.log(did, vid);
+        BootstrapDialog.show({
+            title:'Add new version to this document',
+            message: 'Hello',
+            type: BootstrapDialog.TYPE_INFO,
+            buttons:[
+                {
+                label: 'Cancel',
+                cssClass: 'btn-default',
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            },{
+                label: 'Save',
+                cssClass: 'btn-primary',
+                action: function(dialogRef){
+                    var selectName = 'access';
+                    doUpdate( dialogRef, $('#editMenuItemForm').serializeArray(), selectName);
+                }
+            }
+            ],
+            onshown: function(){
+                $('.chosen-select').chosen({width:'100%'});
+            }
+        });
+    });
+
+   $('.edit-document').on('click', function(){
+        var did = $(this).data('did');
+        var vid = $(this).data('vid');
+        var document = doAjax('get','/api/getdocument',{did:did}).data;
+        var fields = new Bs3form();
+        var message = '<div class="container"><div class="col-md-5"><form id="editDocumentForm" class="form-horizontal">';
+        message += fields.hiddenField({
+            id:'id',
+            name:'id',
+            value:document.id}),
+        message += fields.textField({
+            name:'name',
+            label:'Document Name',
+            value:document.name,
+            required:true,
+            class:'required',
+            placeholder:'Enter the document name'}),
+        message += fields.selectField({
+            id:'manufacturer_id',
+            name:'manufacturer_id',
+            label:'Manufacturer',
+            class:'chosen-select required',
+            options: doAjax('post', '/api/getselectoptions/',{
+                options:{
+                    dbTable:'Application_Model_DbTable_Manufacturer',
+                    method:'getManufacturerOptions',
+                    params:'aircraft'
+                }
+            }).data,
+            value:document.manufacturer_id,
+            required:true,
+            placeholder:'Enter the Manufacturer Name'}),
+        message += fields.selectField({
+            id:'aircraft_model_id',
+            name:'aircraft_model_id',
+            label:'Aircraft',
+            class:'chosen-select required',
+            options: doAjax('post', '/api/getselectoptions/',{
+                options:{
+                    dbTable:'Application_Model_DbTable_Aircraft',
+                    method:'getAicraftSelectByManufacturer',
+                    params: document.manufacturer_id
+                }
+            }).data,
+            value:document.aircraft_model_id,
+            required:true,
+            placeholder:'Enter the aircraft model'}),
+
+        message += '</form></div></div>';
+
+        BootstrapDialog.show({
+            title:'Edit this document',
+            message: message,
+            type: BootstrapDialog.TYPE_INFO,
+            buttons:[
+            {
+                label: 'Delete Document',
+                cssClass: 'btn-default btn-xs',
+                action: function(dialogRef){
+                    BootstrapDialog.confirm({
+                        title:"Confirm",
+                        message:"Are you sure you want to delete this document?",
+                        type: BootstrapDialog.TYPE_WARNING,
+                        callback: function(result){
+                            if(result){
+                                var response = doAjax('post','/document/delete',{'did':did});
+                                dialogRef.close();
+                                if(response.message == 'ok'){
+                                    location.reload();
+                                }else{
+                                     BootstrapDialog.alert({title:'Error', message:'There was an error deleting the document. ERR '+response.text, type: BootstrapDialog.TYPE_WARNING});
+                                }
+                            }else{
+                            }
+                        }
+                    });
+                }
+            },{
+                label: 'Cancel',
+                cssClass: 'btn-default',
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            },{
+                label: 'Save',
+                cssClass: 'btn-primary',
+                action: function(dialogRef){
+                    var response = doAjax('post','/document/update',{'did':did, 'data':$('#editDocumentForm').serializeArray() });
+                    dialogRef.close();
+                    if(response.message == 'ok'){
+                        location.reload();
+                    }else{
+                         BootstrapDialog.alert({title:'Error', message:'There was an error updating the document. ERR '+response.text, type: BootstrapDialog.TYPE_WARNING});
+                    }
+                }
+            }
+            ],
+            onshown: function(){
+                $('.chosen-select').chosen({width:'100%'});  
+                $('#manufacturer_id').on('change', function() {
+                    var manufacturer_id = $(this).val();
+                    var selectx = fields.selectField({
+                            id:'applicability',
+                            name:'applicability',
+                            label:'Applicability',
+                            class:'chosen-select required',
+                            options: doAjax('post', '/api/getselectoptions/',{
+                                options:{
+                                    dbTable:'Application_Model_DbTable_Aircraft',
+                                    method:'getAicraftSelectByManufacturer',
+                                    params: manufacturer_id
+                                }
+                            }).data,
+                            required:true,
+                            placeholder:'Enter the Manufacturer Name'})
+                        $("#aircraft_id").html(selectx);
+                    $("#aircraft_id").trigger("chosen:updated");
+                });
+
+                // BOOTSTRAP 3 - DateTimePicker - ref. http://eonasdan.github.io/bootstrap-datetimepicker/
+                $('.datetimepicker').datetimepicker({
+                    format: 'YYYY-MM-DD'
+                });
+            }
+        });
+    });
+</script>

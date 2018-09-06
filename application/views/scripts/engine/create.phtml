@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2>Add New Engine</h2>
+        </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="/engine/store">
+                <div class="row mt20">
+                    <div class="col-md-12">
+                        <label for="engine_manufacturer_id">Manufacturer</label> <a href="/manufacturer/create" title="Add new manufacturer"><i class="fa fa-plus-circle"></i></a>
+                        <select class="form-control" id="engine_manufacturer_id" type="text" name="engine_manufacturer_id" required="">
+                            <option value="">Select Manufacturer&hellip;</option>
+                            <?php foreach($this->manufacturers as $key=>$value) : ?>
+                                <option value="<?=$value['manufacturer_id']?>"><?=$value['manufacturer_name']?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="tcds_id">TCDS</label> <a href="/tcds/create" title="Add new TCDS"><i class="fa fa-plus-circle"></i></a>
+                        <div id="selectTCDS"><select class="form-control" disabled><option value="">Select TCDS&hellip;</option></select></div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="engine_model">Engine Model</label>
+                        <input class="form-control" type="text" id="engine_model" name="engine_model" required="">
+                    </div>
+                </div>
+
+                <div class="row mt20">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary btn-sm" type="submit">Add New Engine</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</div>
+<script>
+$(function () {
+    $("input#engine_model").autocomplete({
+        source: '/api/getenginemodels',
+        minLength: 2
+    });
+
+    $('#engine_manufacturer_id').on('change', function(){
+        var id = $(this).val();
+       var url = "/api/gettcdsbymanufacturer";
+            var result = doAjax('post', url, {id: id});
+            if(result.message == 'ok'){
+                if(result.data.length > 0){
+                    var selectString = '<select id="tcds" class="form-control" name="tcds_id" required><option value="">Select TCDS&hellip;</option>'
+                        console.log(result.data.length);
+                    $.each(result.data, function(key, value){
+                        selectString += '<option value="'+value.tcds_id+'">'+ value.tcds + ' : ' + value.tcds_title + '</option>';                        
+                    })
+                    selectString += '</select>';
+                }else{
+                    selectString = '<select class="form-control" disabled><option value="">Select TCDS&hellip;</option></select>';
+                }
+                $('#selectTCDS').html(selectString);
+            }else{
+              // showError(result.message);
+            }
+    })
+});
+</script>

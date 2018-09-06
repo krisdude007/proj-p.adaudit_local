@@ -1,0 +1,56 @@
+<div class="container">
+    <div id="toolbar">
+        <h3 style='color: #2aabd2;'><?= $this->adItem['ad_txt']; ?></h3>
+        <button class="btn btn-warning" onclick="history.go(-1)">Return to AD(s)</button>
+    </div>
+    <hr/>
+    <div id="new_form_lgc">
+        <div id="form_ad_paragraph" class="form-horizontal mt20">
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <label for="ad_desc">Description</label>
+                    <textarea readonly rows="4" class="form-control" id="ad_desc" name="ad_desc" placeholder="Description"><?= $this->adItem['ad_desc']; ?></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <label for="effective_date">Effective Date</label>
+                    <input readonly type="text" class="form-control" value="<?= $this->adItem['effective_date']; ?>" id="effective_date" name="effective_date" placeholder="Effective Date">
+                </div>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <label for="affected_ads">Affected AD(s)</label>
+                    <input readonly type="text" class="form-control" value="<?= !is_null($this->adItem['affected_ad']) ? $this->adItem['affected_ad'] : 'No Affected ADs'; ?>" id="affected_ads" name="affected_ads" placeholder="Affected AirWorthiness Directives">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <label for="references">References</label>
+                    <textarea readonly rows="4" class="form-control" id="ad_ref" name="ad_ref" placeholder="References"><?= $this->adItem['reference_txt']; ?></textarea>
+                </div>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <label for="ata">ATA</label>
+                    <input readonly type="text" class="form-control" value="<?= !is_null($this->adItem['ata_id']) ? $this->adItem['ata_id'] : 'No ATA'; ?>" id="ata" name="ata" placeholder="ATA">
+                </div>
+            </div>
+             <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <label for="ata">Status</label>
+                    <input readonly type="text" class="form-control" value="<?= !is_null($this->adItem['ad_status_txt']) ? $this->adItem['ad_status_txt'] : 'No ATA'; ?>" id="ata" name="ata" placeholder="ATA">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <label for="ata">Applicable Fleets</label>
+                    <input readonly type="text" class="form-control" value="<?= !is_null($this->fleetList) ? $this->fleetList : 'No Applicable Fleets'; ?>" id="fleet_list" name="fleet_list" placeholder="Fleet List">
+                </div>
+            </div>
+            <hr/>
+        </div>
+    </div>
+</div>

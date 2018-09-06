@@ -1,0 +1,44 @@
+<ul class="nav navbar-nav navbar-right">
+
+<li class="dropdown"><a href="#" class="dropdown-toggle"
+				data-toggle="dropdown"><i class="icon-cogs"></i> <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+
+
+
+<?php if ($this->user) { ?>
+	<li class="hidden-lg hidden-md">
+		<form method="post">
+			<?php echo $this->formHidden("ClientSelectForm","1"); ?>
+			<?php // See _initNavigation() in the Bootstrap.php file.  
+				if (count($this->header_customers)==1) // if we only have one customer don't display drop down.
+					echo $this->header_current_customer;
+				else
+					echo $this->formSelect("ClientSelector",$this->header_current_customer,array("class"=>"noPrint form-control","onchange"=>"this.form.submit()"),$this->header_customers); 
+			?> 
+		</form>
+	</li>
+<?php } ?>
+<li class="divider hidden-lg hidden-md"></li>
+<?php
+// // See _initNavigation() in the Bootstrap.php file.
+
+foreach ($this->menu as $element)
+{
+	$uri=$element['uri'];
+	$label = $element['label'];
+	
+	echo "<li>\n";
+	echo "	<a href='$uri'>$label</a>\n";
+	echo "</li>\n";	
+}
+?>
+	<li class="divider hidden-lg hidden-md"></li>
+	<li class="hidden-lg hidden-md">
+		<a href='<?php echo $this->ProfileURL; ?>'><?php echo $this->user['user_nm']; ?></a>
+	</li>
+	<li class="hidden-lg hidden-md">
+		<a href='<?php echo $this->LogInOutURL; ?>'>Sign Out</a>
+	</li>
+</ul>
+</ul>

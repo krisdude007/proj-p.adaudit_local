@@ -1,0 +1,136 @@
+<div class="container">    
+    <div id="toolbar">
+      <a href="/engine/create" class="btn btn-primary">New Engine</a>
+    </div>
+    <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%"
+        data-toolbar="#toolbar"
+        data-search="true"
+        data-show-refresh="true"
+        data-show-toggle="true"
+        data-show-columns="true"
+        data-show-export="true"
+        data-show-pagination-switch="true"
+        data-pagination="true"
+        data-id-field="id"
+        data-page-list="[10, 25, 50, 100, ALL]"
+        data-show-footer="false"
+        data-cookie="true"
+        data-cookie-id-table="engineViewTable"
+    >
+    </table>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#table').bootstrapTable({
+        url:  '/api/getenginelist',
+        type: 'POST',
+        columns: [{
+            field: 'manufacturer_name',
+            title: 'Manufacturer',
+            sortable: 'true',
+            width: '100'
+        }, {
+            field: 'engine_model',
+            sortable: 'true',
+            title: 'Engine Model',
+            width: '100'
+        }, {
+            field: 'tcds',
+            sortable: 'true',
+            title: 'TCDS',
+            width: '100'
+        } ,{
+            field: 'tools',
+            title: '',
+            align: 'center',
+            width: '20',
+            events: toolEvent,
+            formatter: toolFormatter
+        }],
+        exportDataType: 'all'
+    });
+});
+function intFormatter(value, row, index)
+{
+    if(value == null){
+        return value
+    }else{
+        return nl2br(value);
+    }
+}
+function toolFormatter(value, row, index)
+{
+    return [
+        '<a class="edit" href="javascript:void(0)" title="Edit this row">',
+        '<i class="fa fa-pencil"></i>',
+        '</a>',
+        '&nbsp;',
+        '<a class="delete" href="javascript:void(0)" title="Delete row id '+row.id+'">',
+        '<i class="fa fa-trash"></i>',
+        '</a>'
+    ].join('');
+}
+window.toolEvent = {
+    'click .edit': function(e, value, row, index){
+        doEdit(row.id);
+    },
+    'click .delete': function(e, value, row, index){
+        BootstrapDialog.confirm({
+            title:"Confirm",
+            message:"Are you sure you want to delete this engine?",
+            type: BootstrapDialog.TYPE_WARNING,
+            callback: function(result){
+                if(result){
+                    doDelete(row.id);
+                }else{
+                }
+            }
+        });
+    }
+}
+
+function doEdit(rowID){
+    // get the data
+    var url = "/engine/edit";
+    var result = doAjax('post', url, {id: rowID});
+    if(result.message == 'ok'){
+        BootstrapDialog.alert({
+            title:'Success', 
+            message:'Record was edited.',
+            type:BootstrapDialog.TYPE_SUCCESS
+        });
+      $('#table').bootstrapTable('refresh');
+    }else{
+        BootstrapDialog.alert({
+            title:'Error', 
+            message:'There was an error editing the record.',
+            type:BootstrapDialog.TYPE_DANGER
+        });
+    }
+    BootstrapDialog.alert(rowID);
+}
+
+function doDelete(rowID){
+    var url = "/engine/delete";
+    var result = doAjax('post', url, {id: rowID});
+    if(result.message == 'ok'){
+        BootstrapDialog.alert({
+            title:'Success', 
+            message:'The engine was deleted.',
+            type:BootstrapDialog.TYPE_SUCCESS
+        });
+      $('#table').bootstrapTable('refresh');
+    }else{
+        doError('There was an error deleting the engine.');
+    }
+}
+
+function doError(message){
+    BootstrapDialog.alert({
+        title:'Error', 
+        message: message,
+        type:BootstrapDialog.TYPE_DANGER
+    });
+}
+</script>

@@ -1,0 +1,316 @@
+<div class="container">    
+    <div id="toolbar">      
+        <a href="#" class="btn btn-primary new-aircraft">New Aircraft</a>
+    </div>
+    <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%"
+        data-toolbar="#toolbar"
+        data-search="true"
+        data-show-refresh="true"
+        data-show-toggle="true"
+        data-show-columns="true"
+        data-show-export="true"
+        data-show-pagination-switch="true"
+        data-pagination="true"
+        data-id-field="id"
+        data-page-list="[10, 25, 50, 100, ALL]"
+        data-show-footer="false"
+        data-cookie="true"
+        data-cookie-id-table="aircraftViewTable"
+    >
+    </table>
+</div>
+<script>
+$(document).ready(function() {
+    $('#table').bootstrapTable({
+        url:  '/api/getaircraftlist',
+        type: 'POST',
+        columns: [{
+            field: 'aircraft_manufacturer_name',
+            title: 'Manufacturer',
+            sortable: 'true',
+            width: '100',
+            cellStyle: 'changeBarCellStyle'
+        }, {
+            field: 'aircraft_model',
+            sortable: 'true',
+            title: 'Aircraft Model',
+            width: '100'
+        }, {
+            field: 'aircraft_tcds',
+            sortable: 'true',
+            title: 'Aircraft TCDS',
+            width: '100'
+        },{
+            field: 'engine_manufacturer_name',
+            title: 'Engine Manufacturer',
+            sortable: 'true',
+            formatter: 'intFormatter',
+        },{
+            field: 'engine_model',
+            title: 'Engine Model',
+            sortable: 'true',
+            formatter: 'intFormatter',
+        } ,{
+            field: 'engine_tcds',
+            title: 'Engine TCDS',
+            sortable: 'true',
+            width: '120',
+            formatter: 'intFormatter'
+        } ,{
+            field: 'tools',
+            title: '',
+            align: 'center',
+            width: '80',
+            events: toolEvent,
+            formatter: toolFormatter
+        } ],
+        exportDataType: 'all'
+    });
+});
+
+function intFormatter(value, row, index)
+{
+    if(value == null){
+        return value
+    }else{
+        return nl2br(value);
+    }
+}
+
+function toolFormatter(value, row, index)
+{
+    return [
+        '<a class="edit" href="javascript:void(0)" title="Edit this row">',
+        '<i class="fa fa-pencil"></i>',
+        '</a>',
+        '&nbsp;',
+        '<a class="delete" href="javascript:void(0)" title="Delete row id '+row.id+'">',
+        '<i class="fa fa-trash"></i>',
+        '</a>'
+    ].join('');
+}
+window.toolEvent = {
+    'click .edit': function(e, value, row, index){
+        doEdit(row.id);
+    },
+    'click .delete': function(e, value, row, index){
+        BootstrapDialog.confirm({
+            title:"Confirm",
+            message:"Are you sure you want to delete this aircraft?",
+            type: BootstrapDialog.TYPE_WARNING,
+            callback: function(result){
+                if(result){
+                    doDelete(row.id);
+                }else{
+                }
+            }
+        });
+    }
+}
+
+function doEdit(rowID){
+    var result = doAjax('post', '/api/getaircraft', {id: rowID});
+    if(result.message == 'ok'){
+        var aircraft = result.data;
+        var fields = new Bs3form();
+        var message = '<div class="container"><div class="col-md-5"><form id="editForm" class="form-horizontal">';
+        message += fields.selectField({
+            options: getManufacturers('aircraft'),
+            label: 'Aircraft Manufacturer',
+            class: 'chosen-select',
+            value: aircraft.aircraft_manufacturer_id,
+            required:true
+        });
+        message += fields.selectField({
+            options: getAircraft(),
+            label: 'Model',
+            class: 'chosen-select',
+            value: aircraft.aircraft_id
+        });
+        message += fields.selectField({
+            options: getTCDS('aircraft'),
+            label: 'Aircraft TCDS',
+            class: 'chosen-select',
+            value: aircraft.aircraft_tcds_id
+        });
+        message += fields.selectField({
+            options: getManufacturers('engine'),
+            label: 'Engine Manufacturer',
+            class: 'chosen-select',
+            value: aircraft.engine_manufacturer_id,
+            required:true
+        });
+        message += fields.selectField({
+            options: getTCDS('engine'),
+            label: 'Engine TCDS',
+            class: 'chosen-select',
+            value: aircraft.engine_tcds_id
+        });
+        message += '</form></div></div>';
+                BootstrapDialog.show({
+            title:'Edit aircraft', 
+            message: message,
+            type: BootstrapDialog.TYPE_INFO,
+            buttons:[
+            {
+                label: 'Cancel',
+                cssClass: 'btn-default',
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            },{
+                label: 'Save',
+                cssClass: 'btn-primary',
+                action: function(dialogRef){
+                    doUpdate( dialogRef, $('#editForm').serializeArray());
+                }
+            }
+            ],
+            onshown: function(){
+                $('.chosen-select').chosen({width:'100%'});  
+                $('.datetimepicker').datetimepicker();
+                $(".affected_ad2").autocomplete({
+                    source: '/api/getadnumbers',
+                    minLength: 2
+                });
+            }
+        });
+    }else{
+        BootstrapDialog.alert({type: BootstrapDialog.TYPE_WARNING, message:"There was an error editing the record."});
+    }
+}
+
+function doDelete(rowID){
+    var url = "/aircraft/delete";
+    var result = doAjax('post', url, {id: rowID});
+    if(result.message == 'ok'){
+        BootstrapDialog.alert({type: BootstrapDialog.TYPE_SUCCESS, message:"The record was deleted."});
+        $('#table').bootstrapTable('refresh');
+    }else{
+        BootstrapDialog.alert({type: BootstrapDialog.TYPE_WARNING, message:"There was an error deleting the record."});
+    }
+}
+// function getManufacturers(){
+//     return $.getJSON('/api/getmanufacturers')
+//     .done(function(data){ 
+//         console.log('data');
+//         console.log(data);
+//         return data;
+//     })
+// }
+
+
+$('.new-aircraft').on('click', function(){
+    var manufacturers = doAjax('get', '/api/getmanufacturers');
+
+    var fields = new Bs3form();
+    var message = '<div class="container"><div class="col-md-5"><form id="createForm" class="form-horizontal">';
+    message += fields.selectField({
+        options: getManufacturers('aircraft'),
+        label: 'Aircraft Manufacturer',
+        class: 'chosen-select',
+        name: 'aircraft_manufacturer_id',
+        required: true
+    }),
+    message += fields.textField({
+        label: 'Aircraft Model',
+        name: 'aircraft_model',
+        required: true,
+        placeholder: 'Enter aircraft model'
+    }),
+    message += fields.selectField({
+        options: getTCDS('aircraft'),
+        label: 'Aircraft TCDS',
+        class: 'chosen-select',
+        name: 'aircraft_tcds_id'
+    }),
+
+    message += fields.textField({
+        label: 'Number of landing gear',
+        name: 'landing_gear',
+        placeholder: 'Enter number of landing gear',
+        required: false
+    }),
+
+    message += fields.textField({
+        label: 'Number of engines',
+        name: 'engines',
+        placeholder: 'Enter number of engines',
+        required: false
+    }),
+
+    message += fields.textField({
+        label: 'Number of propellors',
+        name: 'propellors',
+        placeholder: 'Enter number of propellors',
+        required:false
+    }),
+
+    message += fields.selectField({
+        options: getManufacturers('engine'),
+        label: 'Engine Manufacturer',
+        class: 'chosen-select',
+        name: 'engine_manufacturer_id'
+    }),
+    message += fields.selectField({
+        options: getEngines(),
+        label: 'Engine Model',
+        class: 'chosen-select',
+        name: 'engine_id'
+    }),
+ 
+    message += fields.selectField({
+        options: getManufacturers('propellor'),
+        label: 'Propellor Manufacturer',
+        class: 'chosen-select',
+        name: 'propellor_manufacturer_id'
+    }),
+    message += fields.selectField({
+        options: getPropellors(),
+        label: 'Propellor Model',
+        class: 'chosen-select',
+        name: 'propellor_id'
+    }),
+    message += '</form></div></div>';
+
+        BootstrapDialog.show({
+            title:'Add new aircraft', 
+            message: message,
+            type: BootstrapDialog.TYPE_INFO,
+            buttons:[
+            {
+                label: 'Cancel',
+                cssClass: 'btn-default',
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            },{
+                label: 'Save',
+                cssClass: 'btn-primary',
+                action: function(dialogRef){
+                    var response = doAjax('post','/aircraft/create',{data:$('#createForm').serializeArray()});
+                    dialogRef.close();
+                   if(response.message == 'ok'){
+                        $('#table').bootstrapTable('refresh');
+                    }else{
+                         BootstrapDialog.alert({title:'Error', message:'There was an error creating the aircraft. ERR '+response.text, type: BootstrapDialog.TYPE_WARNING});
+                    }
+                }
+            }
+            ],
+            onshown: function(){
+                $('.chosen-select').chosen({width:'100%'});  
+            }
+        });
+})
+
+
+
+function doUpdate( dialogRef, data){
+    dialogRef.close();
+    // console.log('doupdate');
+    $('#editForm').serializeArray()
+    // console.log(data);
+}
+
+</script>

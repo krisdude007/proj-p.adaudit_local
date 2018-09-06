@@ -1,0 +1,180 @@
+<div class="container" id="app">    
+    <div id="toolbar">      
+        <a href="/manufacturer/create" class="btn btn-primary">New Manufacturer</a>
+    </div>
+    <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%"
+        data-toolbar="#toolbar"
+        data-search="true"
+        data-show-refresh="true"
+        data-show-toggle="true"
+        data-show-columns="true"
+        data-show-export="true"
+        data-show-pagination-switch="true"
+        data-pagination="true"
+        data-id-field="id"
+        data-page-list="[10, 25, 50, 100, ALL]"
+        data-show-footer="false"
+        data-cookie="true"
+        data-cookie-id-table="aircraftViewTable"
+    >
+    </table>
+</div>
+
+<script>
+$(document).ready(function() {
+
+    $('#table').bootstrapTable({
+        url:  '/api/getmanufacturers',
+        type: 'POST',
+        columns: [{
+            field: 'manufacturer_name',
+            title: 'Manufacturer',
+            sortable: 'true',
+            width: '100'
+        } ,{
+            field: 'manufacturer_type',
+            title: 'Type',
+            sortable: 'true',
+            width: '100',
+            formatter: ucaseFormatter
+        } ,{
+            field: 'tools',
+            title: '',
+            align: 'center',
+            width: '80',
+            events: toolEvent,
+            formatter: toolFormatter
+        } ],
+        exportDataType: 'all'
+    });
+});
+
+function intFormatter(value, row, index)
+{
+    if(value == null){
+        return value
+    }else{
+        return nl2br(value);
+    }
+}
+
+function ucaseFormatter(value, row, index)
+{
+     if(value == null){
+        return value
+    }else{
+        return value.substr(0, 1).toUpperCase() + value.substr(1);
+    }   
+}
+
+function toolFormatter(value, row, index)
+{
+    return [
+        '<a class="edit" href="javascript:void(0)" title="Edit this row">',
+        '<i class="fa fa-pencil"></i>',
+        '</a>',
+        '&nbsp;',
+        '<a class="delete" href="javascript:void(0)" title="Delete row id '+row.id+'">',
+        '<i class="fa fa-trash"></i>',
+        '</a>'
+    ].join('');
+}
+
+$.templates({
+  modalFormTemplate: "#modalFormTemplate"
+});
+
+
+
+window.toolEvent = {
+    'click .edit': function(e, value, row, index){
+        // console.log(row);
+        doEdit(row.manufacturer_id);
+    },
+    'click .delete': function(e, value, row, index){
+        BootstrapDialog.confirm({
+            title:"Confirm",
+            message:"Are you sure you want to delete this manufacturer?",
+            type: BootstrapDialog.TYPE_WARNING,
+            callback: function(result){
+                if(result){
+                    doDelete(row.manufacturer_id);
+                }else{
+
+                }
+            }
+        });
+    }
+}
+function doEdit(id){
+    var url = "/api/getmanufacturer";
+    var result = doAjax('post', url, {id: id});
+    if(result){
+        var fields = new Bs3form();
+        var thisContent = [
+         '<form id="doEditForm">',
+         fields.hiddenField( {name:'action', value:'/manufacturer/update'}),
+         fields.hiddenField( {name:'manufacturer_id', value:result.manufacturer_id}),
+         fields.textField( {name:'manufacturer_name', label:'Manufacturer Name',value:result.manufacturer_name, required:true, class:'required' ,placeholder:'Manufacturer Name'}),
+         '</form>'
+        ].join('');
+
+        BootstrapDialog.show({
+            title:'Edit Manufacturer', 
+            message:  thisContent,
+            type:BootstrapDialog.TYPE_INFO,
+            buttons:[{
+                label: 'Save',
+                cssClass: 'btn-primary',
+                action: function(dialogRef){
+                    dialogRef.close();
+                    dosomething();
+                }
+            }]
+        });
+    }else{
+
+    }
+
+}
+
+function dosomething(){
+    var url = $('input[name="action"').val();
+    var id = $('input[name="manufacturer_id"]').val();
+
+    var result = doAjax('get', url, {id: id});
+    if(result.message == 'ok'){
+      $('#table').bootstrapTable('refresh');
+    }else{
+        BootstrapDialog.alert({
+            title:'Error', 
+            message:'There was an error deleting the record.',
+            type:BootstrapDialog.TYPE_DANGER
+        });
+    }
+}
+
+function doDelete(rowID){
+    var url = "/manufacturer/delete";
+    var result = doAjax('post', url, {id: rowID});
+    if(result.message == 'ok'){
+        BootstrapDialog.alert({
+            title:'Success', 
+            message:'Record was deleted.',
+            type:BootstrapDialog.TYPE_SUCCESS
+        });
+      $('#table').bootstrapTable('refresh');
+    }else{
+        BootstrapDialog.alert({
+            title:'Error', 
+            message:'There was an error deleting the record.',
+            type:BootstrapDialog.TYPE_DANGER
+        });
+    }
+}
+
+    // $(document).on('submit','#doEditForm',function( e ){
+    //     e.preventDefault();
+
+    // });
+</script>

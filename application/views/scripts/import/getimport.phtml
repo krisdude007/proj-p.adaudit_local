@@ -1,0 +1,77 @@
+<div class="col-md-8 col-md-offset-3">
+    <form class="form-horizontal" enctype="multipart/form-data" method="post" action="/import/postimport">
+    <div class="row mt20">
+        <h2>Import Document</h2>
+    </div>
+<?php if($this->error): ?>
+<div class="alert alert-<?= $this->error['state']?>" role="alert"><?= $this->error['message']?></div>
+<?php endif; ?>
+
+        <div class="row">
+            <div class="col-md-4">
+            <select class="form-control" name="type" required>
+                <option value="">Select Document Type&hellip;</option>
+                <option value="1">MPD</option>
+                <option value="2">MRB</option>
+            </select>
+            </div>
+        </div>
+
+        <div class="row mt20">
+            <div class="col-md-4">
+                <select id="select_manufacturer" name="manufacturer" class="form-control" required></select>
+            </div>
+            <div class="col-md-4">
+                <select id="select_model" name="model" class="form-control" required></select>
+            </div>
+        </div>
+
+        <div class="row mt20">
+            <div class="col-md-4">
+                <label for="input_revision_number">Revision Number</label>
+                <input type="text" id="input_revision_number" name="revision_number" class="form-control" required>
+            </div>
+            <div class="col-md-4">
+                <label for="input_revision_date">Revision Date</label>
+                <input type="text" id="input_revision_date" name="revision_date" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="row mt20">
+            <p>Select File</p>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="file" name="importfile" required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-sm" type="submit">Upload</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    $(function () {
+        // when the page loads, go to the DB and get the list of manufacturers for
+        // the dropdown menu and populate the dropdown.
+        $('#select_manufacturer').load('/api/getmanufacturerselect');
+        // when a manufacturer is selected, update the model dropdown
+        $('#select_manufacturer').on('change', function () {
+             $('#select_model').load('/api/getmodelselect?id='+ $('#select_manufacturer').val());
+        });
+
+        // need to do some validation and enable the submit button
+        $('select','input').on('change', function () {
+          // console.log('input change');
+           // $('#submitButton').prop("disabled", false);
+        });
+
+        // if this page load is for anything but the preload modal then automatically show the form.
+        // For the preload modal, click the Upload Aircraft Data button
+        if( $('input[name="form_name"]').val() != 'preload'){
+          $('#ACUpload_upload_modal').modal('show');
+        }
+    });
+</script>
